@@ -38,7 +38,7 @@
 </style>
 <body>
 <div class="container">
-    <h2>Această pagină este <br> deocamdată in lucru.</h2>
+    <h2>Salut</h2>
     <form id="doc">
     <p class="description">Mai multe detalii in curand.<br>
     </p>
