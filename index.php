@@ -41,20 +41,13 @@
 
     form {
         position:absolute;
-<<<<<<< HEAD
         top:40%;
-=======
-        top:30%;
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         right:0;
         left:0;
     }
     body, h1 {
         font-family: "Libre Baskerville", Sans-serif;
-<<<<<<< HEAD
         margin-top: 60px;
-=======
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
     }
     img#iphone {
         float: left;
@@ -93,15 +86,9 @@
 <div class="container" style="text-align:center; vertical-align:middle">
     <form action="login1.php" method="post">
         <label for="name">Username</label>
-<<<<<<< HEAD
         <input type="text" placeholder="Enter Username" id="name" name="name"><br>
         <label for="password">Password</label>
         <input type="password" placeholder="Enter Password" id="password" name="password"><br>
-=======
-        <input type="text" id="name" placeholder="Enter Username" name="name"><br>
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter Password" name="password"><br>
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         <input type="submit" name="login" value="Login">
         <input type="submit" name="register" value="Register">
     </form>

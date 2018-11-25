@@ -2,11 +2,7 @@
 <html>
 <style>
     input {
-<<<<<<< HEAD
         width: 12%;
-=======
-        width: 10%;
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         padding: 12px 20px;
         margin: 5;
         border-radius: 30px;
@@ -32,20 +28,12 @@
     }
     input[type=text]:focus {
         background-color: lightskyblue;
-<<<<<<< HEAD
         width: 15%;
-=======
-        width: 12%;
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         outline: none;
     }
     input[type=password]:focus {
         background-color: lightskyblue;
-<<<<<<< HEAD
         width: 15%;
-=======
-        width: 12%;
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         outline: none;
     }
     input[type="submit"]:hover {
@@ -64,15 +52,9 @@
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
         <label for="nname">Username</label>
-<<<<<<< HEAD
         <input type="text" id="nname" name="nname"><br>
         <label for="npassword">Password</label>
         <input type="password" id="npassword" name="npassword"><br>
-=======
-        <input type="text" id="nname"  placeholder="Enter Username" name="nname"><br>
-        <label for="npassword">Password</label>
-        <input type="password" id="npassword" placeholder="Enter Password" name="npassword"><br>
->>>>>>> 59adb542767ff4acb320e1c22d8766e58bf9baf5
         <label for="nname">Nume</label>
         <input type="text" id="nume" name="nume"><br>
         <label for="nname">Prenume</label>
