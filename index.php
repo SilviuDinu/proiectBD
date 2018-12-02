@@ -41,7 +41,7 @@
 
     form {
         position:absolute;
-        top:40%;
+        top:35%;
         right:0;
         left:0;
         width: 50%;
@@ -86,6 +86,26 @@
         min-height: 100%;
         z-index: -4;
     }
+    p{
+        text-align: center;
+        vertical-align: center;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer{
+        width: 100%;
+        height: 50px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
+        background-color: Black;
+        color: #ffffff;
+        position: fixed;
+        margin: 0 auto;
+        bottom: 20%;
+        text-align: center;
+    }
+
 </style>
 <body>
 <video autoplay muted loop id="video">
@@ -113,6 +133,8 @@
         <img src="oneplus.png" id="oneplus">
     </div>
 </div>
+<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p></div>
+
 
 </body>
 </html>
