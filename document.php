@@ -51,7 +51,7 @@
         bottom: 0;
         min-width: 100%;
         min-height: 100%;
-        z-index: -2;
+        z-index: -6;
     }
     #doc{
         width: 100%;
@@ -148,6 +148,33 @@
 <!--    <button onclick="myFunction()" style="margin-left: 42.5%">Try it</button>-->
 
 </div>
+<!--<script>-->
+<!--    function createDoll(userChoice) {-->
+<!--        var output = document.getElementById("display_here");-->
+<!--        output.innerHTML = "";-->
+<!---->
+<!--        var links = [-->
+<!--            "http://www.dreamomania.info/dreamdictionary/wp-content/uploads/2013/02/V.jpg",-->
+<!--            "http://i452.photobucket.com/albums/qq248/lostvegasvip/Burning-letter-P-psd26647.png",-->
+<!--            "http://www.arro-signs.co.uk/red-letter-s.jpg",-->
+<!--            "http://colleenmorrow.com/wp-content/uploads/2011/09/the-letter-m.png"-->
+<!--        ];-->
+<!---->
+<!--        var choices = ["Vintage", "Plaid", "Skater", "Maxi"];-->
+<!--        var sentence = "<p>You picked a " + choices[userChoice] + " doll.</p>"-->
+<!--        var img = '<img src="' + links[userChoice] + '">';-->
+<!---->
+<!--        output.innerHTML = sentence + img;-->
+<!--    }-->
+<!--</script>-->
+<!---->
+<!---->
+<!--<select name="choice" id="choice" size="3" onchange="createDoll(this.value)">-->
+<!--    <option value="0">Vintage</option>-->
+<!--    <option value="1">Plaid</option>-->
+<!--    <option value="2">Skater</option>-->
+<!--    <option value="3">Maxi</option>-->
+<!--</select>-->
 </body>
 <video autoplay muted loop id="video">
     <source src="tech.mp4" type="video/mp4">
