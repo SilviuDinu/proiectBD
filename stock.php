@@ -75,7 +75,7 @@
 <div class="holder"><h1>Telefonul <?php echo $model.' '.$telefon.' de la brand-ul '.$brand;?> exista in stoc</h1>
 
     <form action="products1.php" method="post" id="sum" onsubmit="myFunction()">
-        <label for="suma"><strong><h2>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga</h2></strong></label><br><br>
+        <label for="suma"><strong><h2>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</h2></strong></label><br><br>
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
