@@ -68,7 +68,7 @@
     input#auction{
         width: 15%;
         display: block;
-        margin: 10 auto;
+        margin: 10px auto;
     }
     input[type=text]:focus {
         background-color: lightskyblue;
@@ -82,7 +82,6 @@
     }
     input {
             width: 12%;
-            margin: 5;
             border-radius: 30px;
             box-sizing: border-box;
             border: 5px solid #ccc;
@@ -95,7 +94,7 @@
         background-color: lightskyblue;
         width: 15%;
         outline: none;
-        margin: 5;
+        margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
         border: 5px solid #ccc;
@@ -118,7 +117,7 @@
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="post" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
-                <option value="apple">Apple</option>
+                <option value="apple">Apple</option>d
                 <option value="samsung">Samsung</option>
                 <option value="oneplus">Oneplus</option>
             </select></p>
