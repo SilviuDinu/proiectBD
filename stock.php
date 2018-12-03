@@ -74,7 +74,8 @@
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
-<div id="display_here"><?php
+<div><?php
+    $src=null;
     if($model=='Oneplus' || $model=='oneplus'){
         $src='oneplus.png';
         echo '<img class="oneplus" src="' . $src . '">';
@@ -86,6 +87,10 @@
     if($model=='Iphone' || $model=='iphone'){
         $src='iphone.png';
         echo '<img class="iphone" src="' . $src . '">';
+    }
+    if($src==null)
+    {
+        include 'session_expired.php';
     }
 
     ?></div>
