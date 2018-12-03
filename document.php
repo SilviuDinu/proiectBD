@@ -127,7 +127,7 @@
             <input type="text" placeholder="Model telefon" id="model" name="model"></p>
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"></p>
+            <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"><br><br><br></p><br><br><br>
 
 <!--        <div id="container2">-->
 <!--            <p id="description2">Selectati modelul-ul dorit:-->
@@ -143,6 +143,7 @@
 <!--                <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"></p>-->
 <!--        </div>-->
 
+        <br><br><br>
         <input type="submit"  id="auction" name="auction" value="Liciteaza">
     </form>
 <!--    <button onclick="myFunction()" style="margin-left: 42.5%">Try it</button>-->
