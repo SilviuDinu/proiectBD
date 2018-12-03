@@ -46,21 +46,26 @@
         text-align: center;
     }
     .iphone, .samsung, .oneplus{
-        width: 25%;
+        width: 26%;
         height: auto;
         margin: 0 auto;
-        display: flex;
-        overflow:auto;
-        position:relative;
-        margin-top: 35vh;
-        transition: width 2s;
-        -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+        display: block;
+        overflow: hidden;
+        margin-top: 20vw;
+        /*transition: width 2s;*/
+        /*-webkit-transition: width 2s; !* Safari 3.1 to 6.0 *!*/
+        -webkit-transition: -webkit-transform 1s ease-in-out;
+        transition:         transform 1s ease-in-out;
     }
 
 
     .iphone:hover, .samsung:hover, .oneplus:hover{
-        width: 30%;
-        height: auto;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    .pic{
+        margin: 0 auto;
+        width: 90%
     }
 
 </style>
@@ -74,7 +79,7 @@
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
-<div><?php
+<div class="pic"><?php
     $src=null;
     if($model=='Oneplus' || $model=='oneplus'){
         $src='oneplus.png';
