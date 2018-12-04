@@ -3,7 +3,7 @@
     input {
         width: 12%;
         padding: 12px 20px;
-        margin: 5;
+        margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
         border: 5px solid #ccc;
@@ -16,11 +16,18 @@
        width: 20%;
         transition: width 2s;
         -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+       overflow: hidden;
+       max-width: 100%;
+       height: auto;
+       box-sizing: border-box;
     }
 
     img:hover{
         width: 30% !important;
         height: auto;
+        overflow: hidden;
+        max-width: 100%;
+        box-sizing: border-box;
     }
      input[type=text]:focus {
         background-color: lightskyblue;
