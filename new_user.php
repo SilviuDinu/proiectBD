@@ -1,3 +1,4 @@
+
 <?php
 $db="proiect";
 
@@ -17,6 +18,7 @@ if(mysqli_num_rows($result) > 0 ) { //check if there is already an entry for tha
     echo 'Username deja existent';
 }
 else {
+    echo '<meta http-equiv="refresh" content="2;url=index.php" />';
     echo 'Felicitari! Ati creat contul cu success';
     mysqli_query($con,"INSERT INTO users (username, password, email, prenume, nume) VALUES ('$username', '$password', '$email', '$prenume', '$nume')");
 }

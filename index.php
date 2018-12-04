@@ -1,7 +1,7 @@
 <html>
 <style>
     input {
-        width: 12%;
+        width: 20%;
         padding: 12px 20px;
         margin: 5px;
         border-radius: 30px;
@@ -31,12 +31,12 @@
     }
      input[type=text]:focus {
         background-color: lightskyblue;
-        width: 15%;
+        width: 25%;
          outline: none;
     }
     input[type=password]:focus {
         background-color: lightskyblue;
-        width: 15%;
+        width: 25%;
         outline: none;
     }
     input[type="submit"]:hover {
@@ -48,25 +48,36 @@
 
     form {
         position:absolute;
-        top:40%;
+        top:35%;
         right:0;
         left:0;
+        width: 50%;
+        margin: 0 auto;
     }
     body, h1 {
         font-family: "Libre Baskerville", Sans-serif;
-        margin-top: 60px;
     }
     img#iphone {
         float: left;
         width: 25%;
-        margin-top: 40px;
+        margin-top: 90px;
     }
    img#oneplus {
         float: right;
         width: 25%;
-       margin-top: 40px;
-        right: 0 !!important;
+       margin-top: 90px;
+        right: 0;
     }
+   h1{
+       position: absolute;
+       top: 10%;
+       right: 0;
+       left: 0;
+       width: 50%;
+       margin: 0 auto;
+       text-align: center;
+   }
+   }
     .container{
         width: 50%;
         margin: 0 auto;
@@ -80,8 +91,28 @@
         bottom: 0;
         min-width: 100%;
         min-height: 100%;
-        z-index: -1;
+        z-index: -4;
     }
+    p{
+        text-align: center;
+        vertical-align: center;
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer{
+        width: 100%;
+        height: 50px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
+        background-color: Black;
+        color: #ffffff;
+        position: fixed;
+        margin: 0 auto;
+        bottom: 20%;
+        text-align: center;
+    }
+
 </style>
 <body>
 <video autoplay muted loop id="video">
@@ -89,7 +120,7 @@
     Your browser does not support HTML5 video.
 </video>
 
-<h1 style="position: absolute; text-align: center; font-style: italic; background-color: rgba(255,255,255,0.7); font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px; margin-left: 30%;">Sistem de licitații online<br> pentru telefoane mobile</h1>
+<h1 style="font-style: italic; background-color: rgba(255,255,255,0.7); font-weight: bold; font-size: 50px;">Sistem de licitații online<br> pentru telefoane mobile</h1>
 <div class="container" style="text-align:center; vertical-align:middle">
     <form action="login1.php" method="post">
         <label for="name">Username</label>
@@ -109,6 +140,8 @@
         <img src="oneplus.png" id="oneplus">
     </div>
 </div>
+<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p></div>
+
 
 </body>
 </html>
