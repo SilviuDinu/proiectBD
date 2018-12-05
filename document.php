@@ -7,8 +7,10 @@
         outline: none;
     }
     .container{
-        width: 60%;
-        margin: 0 auto;
+        width: 75%;
+        margin: 0 0 0 auto;
+        float:right;
+        margin-top: 2vw !important;
         /*background-image: linear-gradient(lightskyblue , whitesmoke);*/
         background-color: rgba(255,255,255,0.88);
         z-index: -1;
