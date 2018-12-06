@@ -18,30 +18,32 @@
     <?php
     $db="proiect";
     session_start();
+    $telefon11 = $_SESSION['telefon'];
     $model1 = $_SESSION['model'];
-
-    if($model1=='Galaxy' || $model1=='galaxy')
-    {
-        $nr=2;
-    }
-    else if($model1=='Iphone' || $model1=='iphone')
-    {
-        $nr=3;
-    }
-    else if($model1=='Oneplus' || $model1=='oneplus')
-    {
-        $nr=4;
-    }
-
     $con=mysqli_connect("localhost", "root", "", "proiect");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
+//    if($model1=='Galaxy' || $model1=='galaxy')
+//    {
+//        $nr=2;
+//    }
+//    else if($model1=='Iphone' || $model1=='iphone')
+//    {
+//        $nr=3;
+//    }
+//    else if($model1=='Oneplus' || $model1=='oneplus')
+//    {
+//        $nr=4;
+//    }
+
     $suma=$_POST['suma'];
-    echo 'Ati licitat suma de <strong>'.$suma.'</strong> EURO pentru '.$model1;
+    echo 'Ati licitat suma de <strong>'.$suma.'</strong> EURO pentru '.$model1.' '.$telefon11;
 
-
+    $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon = '$telefon11'");
+    $row0 = mysqli_fetch_array($result0);
+    $nr=$row0[0];
     $result1 = mysqli_query($con,"SELECT starting_bid FROM telefoane WHERE phone_ID = $nr");
     $row1 = mysqli_fetch_array($result1);
     $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
