@@ -8,7 +8,7 @@ if (isset($_POST['login'])) {
     }
     $username=$_POST['name'];
     session_start();
-    $_SESSION['username'] = $_POST['name'];
+    $_SESSION['utilizator'] = $_POST['name'];
     $password=$_POST['password'];
     $result = mysqli_query($con,"SELECT * FROM users WHERE username='$username' and password='$password'");
     $row = mysqli_fetch_array($result);

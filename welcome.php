@@ -12,10 +12,17 @@
         border-radius: 25px;
         border: 5px solid #ccc;
         height: auto;
+<<<<<<< HEAD
         text-align: center;
+=======
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
     }
     input[type=submit]{
         width: auto;
+        margin-left: 10%;
+    }
+    p{
+        margin-left: 10%;
     }
 
 </style>
@@ -65,9 +72,15 @@
         ?>
     </p>
 </form>
+<<<<<<< HEAD
     <form action="modify.php" method="post">
        <input type="submit" name="modifica" value="Modifica">
     </form>
+=======
+<form action="new_user.php" method="post">
+    <input type="submit" name="modifica" id="modifica" value="Modifica">
+</form>
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
 </div>
 <?php
 //echo 'Salut, '.$_POST["name"].', bine ai venit!';

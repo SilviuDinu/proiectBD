@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <?php
 session_start();
@@ -6,17 +7,26 @@ $user=$_SESSION['username'];
 
 
 
+=======
+
+<html>
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
 <style>
     input {
         width: 12%;
         padding: 12px 20px;
+<<<<<<< HEAD
         margin: 5;
+=======
+        margin: 5px;
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
         border-radius: 30px;
         box-sizing: border-box;
     }
     input[type="submit"] {
         margin-left: 65px;
     }
+<<<<<<< HEAD
     input#nume{
         margin-left: 30px;
     }
@@ -24,6 +34,15 @@ $user=$_SESSION['username'];
         margin-left: 28px;
     }
     input#prenume{
+=======
+    input#nnume{
+        margin-left: 30px;
+    }
+    input#nemail{
+        margin-left: 28px;
+    }
+    input#nprenume{
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
         margin-left: 8px;
     }
     input[type=text],input[type=password]{
@@ -53,6 +72,7 @@ $user=$_SESSION['username'];
         background-size: cover;
     }
 </style>
+<<<<<<< HEAD
 <!--<script>-->
 <!--    function myFunction() {-->
 <!--        alert("Doar campurile completate vor fi luate in considerare\n");-->
@@ -71,6 +91,26 @@ $user=$_SESSION['username'];
         <label>Email</label>
         <input type="text" id="email" name="email"><br>
         <input type="submit" name="modifica" value="Modifica">
+=======
+<script>
+    function myFunction(){
+        alert("Doar campurile completate vor fi luate in considerare");
+    }
+</script>
+<body background="sea.jpg">
+<h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Introduceti datele pe care vreti sa le schimbati</h1>
+<div style="text-align:center; vertical-align:middle">
+    <form action="new_user.php" method="post">
+        <label for="nnpassword">Password</label>
+        <input type="password" id="nnpassword" name="nnpassword">
+        <br><label for="nnname">Nume</label>
+        <input type="text" id="nnume" name="nnume">
+        <br><label for="nnname">Prenume</label>
+        <input type="text" id="nprenume" name="nprenume">
+        <br> <label for="nnname">Email</label>
+        <input type="text" id="nemail" name="nemail"><br>
+        <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
+>>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
     </form>
 </div>
 
