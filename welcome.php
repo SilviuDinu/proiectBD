@@ -7,6 +7,12 @@
     .is-right{
         width: 22.5%;
         float: left;
+        background-color: rgba(255,255,255,0.88);
+        z-index: -1;
+        border-radius: 25px;
+        border: 5px solid #ccc;
+        height: auto;
+        text-align: center;
     }
     input[type=submit]{
         width: auto;
@@ -19,8 +25,8 @@
     <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 18px; font-style: italic;"><?php echo $_POST["name"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
     <input type="submit" name="logout" value="Logout">
     <p id="log">Doriti sa va stergeti contul?</p>
-    <input type="submit" name="delete" value="Delete">
-    <p id="log">
+    <input type="submit" id="delete" name="delete" value="Delete">
+    <p id="log">Datele contului sunt:<br>
         <?php
         $db="proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
@@ -38,11 +44,11 @@
                                 echo $row[$i];
                                 $i++;
                             case "2":
-                                echo "<br>Password: ";
+                                echo "<br>Password:  ";
                                 echo $row[$i];
                                 $i++;
                             case "3":
-                                echo "<br>Nume: ";
+                                echo "<br>Nume:  ".' ';
                                 echo $row[$i];
                                 $i++;
                             case "4":
@@ -55,9 +61,13 @@
                                 $i++;
                         }
                 }
+
         ?>
     </p>
 </form>
+    <form action="modify.php" method="post">
+       <input type="submit" name="modifica" value="Modifica">
+    </form>
 </div>
 <?php
 //echo 'Salut, '.$_POST["name"].', bine ai venit!';

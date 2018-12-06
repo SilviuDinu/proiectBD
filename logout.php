@@ -11,6 +11,7 @@ if (isset($_POST['logout'])) {
 }
 session_start();
 $nume =  $_SESSION['username'];
+session_destroy();
 
 if (isset($_POST['delete'])){
     $result = mysqli_query($con, "DELETE FROM users WHERE username='$nume'");

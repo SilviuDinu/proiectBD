@@ -19,8 +19,14 @@ if(mysqli_num_rows($result) > 0 ) { //check if there is already an entry for tha
 }
 else {
     echo '<meta http-equiv="refresh" content="2;url=index.php" />';
-    echo 'Felicitari! Ati creat contul cu success';
+    echo 'Felicitari! Ati creat contul cu success. Asteptati.....';
     mysqli_query($con,"INSERT INTO users (username, password, email, prenume, nume) VALUES ('$username', '$password', '$email', '$prenume', '$nume')");
+    $result = mysqli_query($con,"SELECT ID FROM users WHERE username='$username'");
+    $row = mysqli_fetch_array($result);
+    session_start();
+    $_SESSION['ID']=$row[0];
+    echo $row[0];
+
 }
 
 ?>
