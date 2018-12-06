@@ -7,9 +7,18 @@
     .is-right{
         width: 22.5%;
         float: left;
+        background-color: rgba(255,255,255,0.88);
+        z-index: -1;
+        border-radius: 25px;
+        border: 5px solid #ccc;
+        height: auto;
     }
     input[type=submit]{
         width: auto;
+        margin-left: 10%;
+    }
+    p{
+        margin-left: 10%;
     }
 
 </style>
@@ -57,6 +66,9 @@
                 }
         ?>
     </p>
+</form>
+<form action="new_user.php" method="post">
+    <input type="submit" name="modifica" id="modifica" value="Modifica">
 </form>
 </div>
 <?php

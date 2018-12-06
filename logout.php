@@ -10,7 +10,7 @@ if (isset($_POST['logout'])) {
     echo 'V-ati delogat cu success';
 }
 session_start();
-$nume =  $_SESSION['username'];
+$nume =  $_SESSION['utilizator'];
 
 if (isset($_POST['delete'])){
     $result = mysqli_query($con, "DELETE FROM users WHERE username='$nume'");
@@ -19,6 +19,6 @@ if (isset($_POST['delete'])){
 
 ?>
 <head>
-    <p style="font-size: 20;">Apasati <a href="index.php">aici</a> pentru a va intoarce la pagina principala</p>
+    <p style="font-size: 20px;">Apasati <a href="index.php">aici</a> pentru a va intoarce la pagina principala</p>
 </head>
 </html>
