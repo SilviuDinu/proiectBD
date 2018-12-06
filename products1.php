@@ -12,6 +12,15 @@
     body{
         background-size: cover;
     }
+    .xmark, .checkmark{
+        width: 10%;
+        height: auto;
+        position: absolute;
+        top: 4vw;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+    }
 </style>
 
 <meta http-equiv="refresh" content="8;url=session_expired.php" />
@@ -52,11 +61,16 @@
     $row2 = mysqli_fetch_array($result2);
     if ($suma > $row1[0] && $suma > $row2[0]){
         mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr");
+        $src='checkmark.png';
+        echo '<img class="checkmark" src="' . $src . '">';
     }
     else {
         echo '<br>Suma introdusa nu este suficient de mare, va rog introduceti o suma mai mare<br> decat suma de inceput si decat ultima suma licitata';
         echo "<br>Suma de inceput este: <strong>". $row1[0].'</strong> EURO';
         echo '<br>Ultima suma licitata care a depasit suma de inceput este: <strong>'.$row2[0].'</strong> EURO';
+        $src='xmark.png';
+        echo '<img class="xmark" src="' . $src . '">';
+
     }
 
 
