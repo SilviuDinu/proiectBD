@@ -35,13 +35,18 @@ $model_ID=null;
 //    $phone_ID=3;
 //    $model_ID=3;
 //}
+//echo $brand.'<br>';
+//echo $model.'<br>';
+//echo $telefon.'<br>';
 $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon='$telefon'");
 $row0 = mysqli_fetch_array($result0);
-$result00 = mysqli_query($con,"SELECT * FROM model WHERE model='$model'");
+$result00 = mysqli_query($con,"SELECT * FROM model WHERE nume_model='$model'");
 $row00 = mysqli_fetch_array($result00);
-$result000 = mysqli_query($con,"SELECT * FROM brand WHERE brand='$brand'");
+$result000 = mysqli_query($con,"SELECT * FROM brand WHERE nume_brand='$brand'");
 $row000 = mysqli_fetch_array($result000);
-//echo $row0[0].$row00[0].$row000[0];
+//echo '0 '.$row0[0];
+//echo '00 '.$row00[0];
+//echo '000 '.$row000[0];
 if($row0[0]==$row00[0] && $row0[0]==$row000[0]&& $row00[0]==$row000[0]){
     $brand_ID=$row000[0];
     $phone_ID=$row0[0];
@@ -55,7 +60,6 @@ $result3 = mysqli_query($con,"SELECT * FROM telefoane WHERE phone_ID='$phone_ID'
 //echo $brand_ID.$model_ID.$phone_ID;
 
 if(mysqli_num_rows($result1) > 0 && mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
-    echo $brand_ID.$model_ID.$phone_ID;
     include 'stock.php';
 }
 else {

@@ -1,40 +1,16 @@
-<<<<<<< HEAD
-<html>
-<?php
-session_start();
-$user=$_SESSION['username'];
-?>
-
-
-
-=======
 
 <html>
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
 <style>
     input {
         width: 12%;
         padding: 12px 20px;
-<<<<<<< HEAD
-        margin: 5;
-=======
         margin: 5px;
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
         border-radius: 30px;
         box-sizing: border-box;
     }
     input[type="submit"] {
         margin-left: 65px;
     }
-<<<<<<< HEAD
-    input#nume{
-        margin-left: 30px;
-    }
-    input#email{
-        margin-left: 28px;
-    }
-    input#prenume{
-=======
     input#nnume{
         margin-left: 30px;
     }
@@ -42,7 +18,6 @@ $user=$_SESSION['username'];
         margin-left: 28px;
     }
     input#nprenume{
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
         margin-left: 8px;
     }
     input[type=text],input[type=password]{
@@ -72,26 +47,6 @@ $user=$_SESSION['username'];
         background-size: cover;
     }
 </style>
-<<<<<<< HEAD
-<!--<script>-->
-<!--    function myFunction() {-->
-<!--        alert("Doar campurile completate vor fi luate in considerare\n");-->
-<!--    }-->
-<!--</script>-->
-<body background="sea.jpg">
-<h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Introduceti noile date in campul corespunzator</h1>
-<div style="text-align:center; vertical-align:middle">
-    <form action="new_user1.php" method="post">
-        <label for="password">Password</label>
-        <input type="password" id="passwordd" name="passwordd"><br>
-        <label for="name">Nume</label>
-        <input type="text" id="nume" name="nume"><br>
-        <label>Prenume</label>
-        <input type="text" id="prenume" name="prenume"><br>
-        <label>Email</label>
-        <input type="text" id="email" name="email"><br>
-        <input type="submit" name="modifica" value="Modifica">
-=======
 <script>
     function myFunction(){
         alert("Doar campurile completate vor fi luate in considerare");
@@ -110,7 +65,6 @@ $user=$_SESSION['username'];
         <br> <label for="nnname">Email</label>
         <input type="text" id="nemail" name="nemail"><br>
         <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
     </form>
 </div>
 

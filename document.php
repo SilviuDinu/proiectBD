@@ -104,9 +104,11 @@
 </style>
 <script>
     function myFunction() {
-        var person = prompt("Doar campurile completate vor fi luate in considerare");
+        var person = prompt("Please enter your name", "Harry Potter");
         if (person != null) {
             <!--            --><?php //echo "Salut ";?>
+            document.getElementById("demo").innerHTML =
+                "Hello " + person + "! How are you today?";
         }
     }
 </script>

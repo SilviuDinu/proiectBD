@@ -12,10 +12,6 @@
         border-radius: 25px;
         border: 5px solid #ccc;
         height: auto;
-<<<<<<< HEAD
-        text-align: center;
-=======
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
     }
     input[type=submit]{
         width: auto;
@@ -32,8 +28,8 @@
     <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 18px; font-style: italic;"><?php echo $_POST["name"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
     <input type="submit" name="logout" value="Logout">
     <p id="log">Doriti sa va stergeti contul?</p>
-    <input type="submit" id="delete" name="delete" value="Delete">
-    <p id="log">Datele contului sunt:<br>
+    <input type="submit" name="delete" value="Delete">
+    <p id="log">
         <?php
         $db="proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
@@ -51,11 +47,11 @@
                                 echo $row[$i];
                                 $i++;
                             case "2":
-                                echo "<br>Password:  ";
+                                echo "<br>Password: ";
                                 echo $row[$i];
                                 $i++;
                             case "3":
-                                echo "<br>Nume:  ".' ';
+                                echo "<br>Nume: ";
                                 echo $row[$i];
                                 $i++;
                             case "4":
@@ -68,19 +64,12 @@
                                 $i++;
                         }
                 }
-
         ?>
     </p>
 </form>
-<<<<<<< HEAD
-    <form action="modify.php" method="post">
-       <input type="submit" name="modifica" value="Modifica">
-    </form>
-=======
 <form action="new_user.php" method="post">
     <input type="submit" name="modifica" id="modifica" value="Modifica">
 </form>
->>>>>>> bfabf8ddfd56413fcd80b54166f98b9e90c734f1
 </div>
 <?php
 //echo 'Salut, '.$_POST["name"].', bine ai venit!';
