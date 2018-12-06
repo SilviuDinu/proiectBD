@@ -13,6 +13,7 @@
         background-size: cover;
     }
 </style>
+
 <meta http-equiv="refresh" content="8;url=session_expired.php" />
 <p>
     <?php
@@ -38,7 +39,7 @@
 //        $nr=4;
 //    }
 
-    $suma=$_POST['suma'];
+    $suma=$_GET['suma'];
     echo 'Ati licitat suma de <strong>'.$suma.'</strong> EURO pentru '.$model1.' '.$telefon11;
 
     $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon = '$telefon11'");

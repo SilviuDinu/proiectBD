@@ -1,3 +1,6 @@
+<html>
+
+
 <?php
 $db="proiect";
 
@@ -6,11 +9,11 @@ if (mysqli_connect_errno())
 {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-$brand=$_POST['telefoane'];
-$model=$_POST['model'];
+$brand=$_GET['telefoane'];
+$model=$_GET['model'];
 session_start();
 //On page 1
-$telefon=$_POST['telefon'];
+$telefon=$_GET['telefon'];
 $_SESSION['model'] = $model;
 $_SESSION['telefon'] = $telefon;
 $brand=ucfirst($brand);
@@ -63,9 +66,9 @@ if(mysqli_num_rows($result1) > 0 && mysqli_num_rows($result2) > 0 && mysqli_num_
     include 'stock.php';
 }
 else {
-    echo $brand_ID.$model_ID.$phone_ID;
     include 'nostock.php';
 }
 
 
 ?>
+</html>

@@ -118,7 +118,7 @@
         echo 'Salut, '.$_POST["name"].', bine ai venit!';
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
-    <form action="products.php" method="post" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
+    <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
                 <option value="apple">Apple</option>d
                 <option value="samsung">Samsung</option>
                 <option value="oneplus">Oneplus</option>

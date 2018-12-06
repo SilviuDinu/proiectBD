@@ -44,23 +44,23 @@
                         switch ($i) {
                             case "1":
                                 echo "<br>Username: ";
-                                echo $row[$i];
+                                echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "2":
                                 echo "<br>Password: ";
-                                echo $row[$i];
+                                echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "3":
                                 echo "<br>Nume: ";
-                                echo $row[$i];
+                                echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "4":
                                 echo "<br>Prenume: ";
-                                echo $row[$i];
+                                echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "5":
                                 echo "<br>Email: ";
-                                echo $row[$i];
+                                echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                         }
                 }
