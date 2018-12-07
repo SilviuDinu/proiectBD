@@ -4,20 +4,20 @@
     input {
         width: 12%;
         padding: 12px 20px;
-        margin: 5;
+        margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
     }
     input[type="submit"] {
         margin-left: 65px;
     }
-    input#nume{
+    input#nnume{
         margin-left: 30px;
     }
-    input#email{
+    input#nemail{
         margin-left: 28px;
     }
-    input#prenume{
+    input#nprenume{
         margin-left: 8px;
     }
     input[type=text],input[type=password]{
@@ -47,21 +47,24 @@
         background-size: cover;
     }
 </style>
+<script>
+    function myFunction(){
+        alert("Doar campurile completate vor fi luate in considerare");
+    }
+</script>
 <body background="sea.jpg">
-<h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Creati un nou cont de utilizator</h1>
+<h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Introduceti datele pe care vreti sa le schimbati</h1>
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
-        <label for="nname">Username</label>
-        <input type="text" id="nname" name="nname"><br>
-        <label for="npassword">Password</label>
-        <input type="password" id="npassword" name="npassword"><br>
-        <label for="nname">Nume</label>
-        <input type="text" id="nume" name="nume"><br>
-        <label for="nname">Prenume</label>
-        <input type="text" id="prenume" name="prenume"><br>
-        <label for="nname">Email</label>
-        <input type="text" id="email" name="email"><br>
-        <input type="submit" name="register" value="Register">
+        <label for="nnpassword">Password</label>
+        <input type="password" id="nnpassword" name="nnpassword">
+        <br><label for="nnname">Nume</label>
+        <input type="text" id="nnume" name="nnume">
+        <br><label for="nnname">Prenume</label>
+        <input type="text" id="nprenume" name="nprenume">
+        <br> <label for="nnname">Email</label>
+        <input type="text" id="nemail" name="nemail"><br>
+        <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
     </form>
 </div>
 
