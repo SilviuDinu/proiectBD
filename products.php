@@ -60,8 +60,6 @@ $result1 = mysqli_query($con,"SELECT * FROM brand WHERE brand_ID='$brand_ID'");
 $result2 = mysqli_query($con,"SELECT * FROM model WHERE model_ID='$model_ID'");
 $result3 = mysqli_query($con,"SELECT * FROM telefoane WHERE phone_ID='$phone_ID'");
 
-//echo $brand_ID.$model_ID.$phone_ID;
-
 if(mysqli_num_rows($result1) > 0 && mysqli_num_rows($result2) > 0 && mysqli_num_rows($result3) > 0) {
     include 'stock.php';
 }
