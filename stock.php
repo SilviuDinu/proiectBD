@@ -46,7 +46,7 @@
         text-align: center;
     }
     .iphone, .samsung, .oneplus{
-        width: 23%;
+        width: 22%;
         height: auto;
         margin: 0 auto;
         display: block;
@@ -68,7 +68,7 @@
         width: 90%
     }
     p {
-        font-size: 35px;
+        font-size: 25px;
     }
     h2{
         text-align: center;
@@ -85,7 +85,7 @@
     }
 </style>
 
-<body background="sea.jpg">
+<body background="tech.png">
 
 <div class="holder"><h1>Telefonul <?php echo $model.' '.$telefon.' de la brand-ul '.$brand;?> exista in stoc</h1>
 
@@ -105,16 +105,11 @@
         $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
         //echo $result;
         $row2 = mysqli_fetch_array($result2);
-        echo "<br>Suma de inceput este: <strong>". $row1[0].'</strong> EURO';
+        echo "Suma de inceput este: <strong>". $row1[0].'</strong> EURO';
         echo '<br>Ultima suma licitata este: <strong>'.$row2[0].'</strong> EURO';
         ?>
     </p>
-    <h2>Timp ramas:
-<!--        --><?php
-//        header('refresh: 5; url=index.php'); // redirect the user after 10 seconds
-//        #exit; // note that exit is not required, HTML can be displayed.
-//        ?>
-    </h2>
+    <h2>Timp ramas:</h2>
     <p id="demo"></p>
     <script>
       setInterval(function () {
@@ -128,7 +123,7 @@
         }, 1000);
     </script>
     <form action="products1.php" method="get" id="sum" onsubmit="myFunction()">
-        <label for="suma"><strong><h2>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</h2></strong></label><br><br>
+        <label for="suma"><strong><p>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</p></strong></label><br><br>
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
@@ -153,33 +148,6 @@
 
     ?></div>
 
-<!--<script>-->
-<!--    function createDoll(userChoice) {-->
-<!--        var output = document.getElementById("display_here");-->
-<!--        output.innerHTML = "";-->
-<!---->
-<!--        var links = [-->
-<!--            "http://www.dreamomania.info/dreamdictionary/wp-content/uploads/2013/02/V.jpg",-->
-<!--            "http://i452.photobucket.com/albums/qq248/lostvegasvip/Burning-letter-P-psd26647.png",-->
-<!--            "http://www.arro-signs.co.uk/red-letter-s.jpg",-->
-<!--            "http://colleenmorrow.com/wp-content/uploads/2011/09/the-letter-m.png"-->
-<!--        ];-->
-<!---->
-<!--        var choices = ["Vintage", "Plaid", "Skater", "Maxi"];-->
-<!--        var sentence = "<p>You picked a " + choices[userChoice] + " doll.</p>"-->
-<!--        var img = '<img src="' + links[userChoice] + '">';-->
-<!---->
-<!--        output.innerHTML = sentence + img;-->
-<!--    }-->
-<!--</script>-->
-<!---->
-<!---->
-<!--<select name="choice" id="choice" size="3" onchange="createDoll(this.value)">-->
-<!--    <option value="0">Vintage</option>-->
-<!--    <option value="1">Plaid</option>-->
-<!--    <option value="2">Skater</option>-->
-<!--    <option value="3">Maxi</option>-->
-<!--</select>-->
 <div id="display_here"></div>
 
 

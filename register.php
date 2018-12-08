@@ -4,7 +4,7 @@
     input {
         width: 12%;
         padding: 12px 20px;
-        margin: 5;
+        margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
     }
@@ -47,7 +47,7 @@
         background-size: cover;
     }
 </style>
-<body background="sea.jpg">
+<body background="tech.png">
 <h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Creati un nou cont de utilizator</h1>
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">

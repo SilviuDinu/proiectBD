@@ -1,7 +1,7 @@
 <?php
 $db="proiect";
 ini_set('session.cache_limiter','private');
-session_cache_limiter(false);
+session_cache_limiter(true);
 if (isset($_POST['login'])) {
     $con=mysqli_connect("localhost", "root", "", "proiect");
     if (mysqli_connect_errno())

@@ -1,5 +1,5 @@
 <html>
-<body background="sea.jpg">
+<body background="tech.png">
 
 <style>
     p{
