@@ -1,4 +1,8 @@
 <html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/my.js"></script>
+</head>
 <style>
     input {
         width: 20%;
@@ -128,7 +132,7 @@
         <label for="password">Password</label>
         <input type="password" placeholder="Enter Password" id="password" name="password"><br>
         <input type="submit" name="login" value="Login">
-        <input type="submit" name="register" value="Register">
+        <input type="submit" name="register" id="register" value="Register">
     </form>
 </div>
 
