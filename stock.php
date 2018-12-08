@@ -127,15 +127,6 @@
           if(timeleft <= 1) window.location="expired.php";
         }, 1000);
     </script>
-    <button id="participa" onclick="setTimeout(myFunction, result*100);">Participa</button>
-
-
-<!--    <script>-->
-<!--        function myFunction() {-->
-<!--            alert('TIMPUL A EXPIRAT');-->
-<!--        }-->
-<!--    </script>-->
-
     <form action="products1.php" method="get" id="sum" onsubmit="myFunction()">
         <label for="suma"><strong><h2>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</h2></strong></label><br><br>
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
