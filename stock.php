@@ -1,6 +1,7 @@
 <html>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<body background="tech.png">
 <style>
     /*.holder{*/
 
@@ -85,7 +86,7 @@
     }
 </style>
 
-<body background="tech.png">
+
 
 <div class="holder"><h1>Telefonul <?php echo $model.' '.$telefon.' de la brand-ul '.$brand;?> exista in stoc</h1>
 

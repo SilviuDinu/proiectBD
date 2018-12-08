@@ -1,5 +1,6 @@
 
 <html>
+<body background="tech.png">
 <style>
     input {
         width: 12%;
@@ -47,20 +48,20 @@
         background-size: cover;
     }
 </style>
-<body background="tech.png">
+
 <h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Creati un nou cont de utilizator</h1>
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
         <label for="nname">Username</label>
-        <input type="text" id="nname" name="nname"><br>
+        <input type="text" required id="nname" name="nname"><br>
         <label for="npassword">Password</label>
-        <input type="password" id="npassword" name="npassword"><br>
+        <input type="password" required id="npassword" name="npassword"><br>
         <label for="nname">Nume</label>
-        <input type="text" id="nume" name="nume"><br>
+        <input type="text" required id="nume" name="nume"><br>
         <label for="nname">Prenume</label>
-        <input type="text" id="prenume" name="prenume"><br>
+        <input type="text" required id="prenume" name="prenume"><br>
         <label for="nname">Email</label>
-        <input type="text" id="email" name="email"><br>
+        <input type="text" required id="email" name="email"><br>
         <input type="submit" name="register" value="Register">
     </form>
 </div>
