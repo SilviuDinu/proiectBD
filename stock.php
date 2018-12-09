@@ -130,7 +130,7 @@
 </div>
 <div class="pic"><?php
     $src=null;
-    if($telefon=='6' && $brand=='Oneplus'){
+    if($model=='Oneplus' && $brand=='Oneplus'){
         $src='oneplus.png';
         echo '<img class="oneplus" src="' . $src . '">';
     }
