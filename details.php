@@ -22,11 +22,11 @@
 
 if(isset($_GET['details'])){
 
-        $db="proiect";
+        $db="id8182920_proiect";
         session_start();
         $username=$_SESSION["utilizator"];
         $bid=$_SESSION["model"];
-        $con=mysqli_connect("localhost", "root", "", "proiect");
+        $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();

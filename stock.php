@@ -93,7 +93,7 @@
     <p style="font-size: 25px"><?php
         $telefon11 = $_SESSION['telefon'];
         $model1 = $_SESSION['model'];
-        $con=mysqli_connect("localhost", "root", "", "proiect");
+        $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();

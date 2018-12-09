@@ -1,9 +1,9 @@
 <?php
-$db="proiect";
+$db="id8182920_proiect";
 ini_set('session.cache_limiter','private');
 session_cache_limiter(true);
 if (isset($_POST['login'])) {
-    $con=mysqli_connect("localhost", "root", "", "proiect");
+    $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();

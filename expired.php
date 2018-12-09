@@ -40,8 +40,8 @@
     $om=$_SESSION["utilizator"];
     session_abort();
     echo 'Licitatia pe care o urmareati a expirat, va rog sa va relogati pentru a participa la altele.';
-    $db="proiect";
-    $con=mysqli_connect("localhost", "root", "", "proiect");
+    $db="id8182920_proiect";
+    $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();

@@ -136,8 +136,8 @@
     <p id="log">
         <?php
         $username=$_SESSION["utilizator"];
-        $db="proiect";
-        $con=mysqli_connect("localhost", "root", "", "proiect");
+        $db="id8182920_proiect";
+        $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -182,9 +182,9 @@
 </div>
 <div class="container">
     <h1><?php
-        $db="proiect";
+        $db="id8182920_proiect";
         $username=$_SESSION["utilizator"];
-        $con=mysqli_connect("localhost", "root", "", "proiect");
+        $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
