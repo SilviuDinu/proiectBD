@@ -87,7 +87,7 @@
         text-align: center;
         font: inherit !important;
     }
-    input#auction{
+    input#search{
         width: 15%;
         display: block;
         margin: 10px auto;
@@ -193,7 +193,7 @@
             <br><br>
             <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"><br><br><br></p><br><br><br>
         <br><br><br>
-        <input type="submit"  id="auction" name="auction" value="Cauta">
+        <input type="submit"  id="search" name="search" value="Cauta">
     </form>
 </div>
 </body>

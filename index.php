@@ -126,7 +126,7 @@
 
 <h1 style="font-style: italic; background-color: rgba(255,255,255,0.7); font-weight: bold; font-size: 50px;">Sistem de licitații online<br> pentru telefoane mobile</h1>
 <div class="container" style="text-align:center; vertical-align:middle">
-    <form action="login1.php" method="post">
+    <form action="login.php" method="post">
         <label for="name">Username</label>
         <input type="text" placeholder="Enter Username" id="name" name="name"><br>
         <label for="password">Password</label>
