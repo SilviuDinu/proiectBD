@@ -5,7 +5,7 @@
 </head>
 <style>
     input {
-        width: 20%;
+        width: 25%;
         padding: 12px 20px;
         margin: 5px;
         border-radius: 30px;
@@ -49,7 +49,9 @@
     input[type="submit"]:focus{
         outline: none;
     }
-
+    /*input[type="submit"] {*/
+        /*margin-left: 25px;*/
+    /*}*/
     form {
         position:absolute;
         top:35%;
@@ -116,6 +118,14 @@
         bottom: 20%;
         text-align: center;
     }
+    input#details{
+        position: relative;
+        /*top: 35%;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*left: 0;*/
+        /*display: block;*/
+    }
 
 </style>
 <body>
@@ -144,8 +154,7 @@
         <img src="oneplus.png" id="oneplus">
     </div>
 </div>
-<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p></div>
-
-
+<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p>
+</div>
 </body>
 </html>

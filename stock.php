@@ -100,17 +100,11 @@
         }
         $result5 = mysqli_query($con," SELECT COUNT(*) FROM telefoane WHERE model_ID=(SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $row5 = mysqli_fetch_array($result5);
-        echo $row5[0];
         $stoc=$row5[0];
         echo "Momentan exista <strong>".$stoc.'</strong> telefoane de tip '.$model1.' in stoc.';
         $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $row0 = mysqli_fetch_array($result0);
         $nr=$row0[0];
-//        $result1 = mysqli_query($con,"SELECT starting_bid FROM telefoane WHERE phone_ID = $nr");
-//        $row1 = mysqli_fetch_array($result1);
-//        $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
-//        //echo $result;
-//        $row2 = mysqli_fetch_array($result2);
         $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
         $row1= mysqli_fetch_array($result1);
         echo "Suma de inceput este: <strong>". $row1[2].'</strong> EURO';

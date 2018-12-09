@@ -175,12 +175,13 @@
 <form action="new_user.php" method="post">
     <input type="submit" name="modifica" id="modifica" value="Modifica">
 </form>
+    <p id="log">Detalii despre site-ul nostru</p>
+    <form action="details.php" method="get">
+        <input type="submit" name="details"  id="details"  value="Detalii">
+    </form>
 </div>
 <div class="container">
     <h1><?php
-        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
-        ?></h1>
-    <h2><?php
         $db="proiect";
         $username=$_SESSION["utilizator"];
         $con=mysqli_connect("localhost", "root", "", "proiect");
@@ -188,13 +189,8 @@
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        $result6 = mysqli_query($con, "SELECT COUNT(*) FROM users");
-        $row6 = mysqli_fetch_array($result6);
-        $result7 = mysqli_query($con, "SELECT AVG (starting_bid) FROM telefoane");
-        $row7 = mysqli_fetch_array($result7);
-        echo "Momentan avem ".$row6[0]." utilizatori pe site-ul nostru.<br>";
-        echo "Suma medie de inceput a produselor noastre este: ".round($row7[0],2). ' EURO.';
-        ?></h2>
+        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
+        ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
                 <option value="apple">Apple</option>d
