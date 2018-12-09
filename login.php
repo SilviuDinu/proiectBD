@@ -23,4 +23,7 @@ if (isset($_POST['login'])) {
 } else if (isset($_POST['register'])){
     include 'register.php';
 }
+else {
+    echo '<h1>Tzeapa cacanare</h1>';
+}
 ?>
