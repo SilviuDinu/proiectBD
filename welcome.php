@@ -10,7 +10,7 @@
         background-color: rgba(255,255,255,0.88);
         z-index: -1;
         border-radius: 25px;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: auto;
     }
     input[type=submit]{
@@ -30,12 +30,11 @@
         width: 75%;
         margin: 0 0 0 auto;
         float:right;
-        margin-top: 2vw !important;
         /*background-image: linear-gradient(lightskyblue , whitesmoke);*/
         background-color: rgba(255,255,255,0.88);
         z-index: -1;
         border-radius: 25px;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: auto;
     }
     .description, ul, li, p:not(#log){
@@ -65,7 +64,8 @@
         font-family: "Libre Baskerville", Sans-serif;
     }
     h2, h1{
-        text-align: center;  font-style: italic; font-weight: normal; font-size: 30px
+        text-align: center;  font-style: italic; font-weight: normal;
+        font-size: 25px;
     }
     #video {
         position: fixed;
@@ -106,7 +106,7 @@
         width: 12%;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
     }
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;
@@ -119,7 +119,7 @@
         margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
     }
 </style>
 <body>
@@ -180,13 +180,28 @@
     <h1><?php
         echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
         ?></h1>
+    <h2><?php
+        $db="proiect";
+        $username=$_SESSION["utilizator"];
+        $con=mysqli_connect("localhost", "root", "", "proiect");
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $result6 = mysqli_query($con, "SELECT COUNT(*) FROM users");
+        $row6 = mysqli_fetch_array($result6);
+        $result7 = mysqli_query($con, "SELECT AVG (starting_bid) FROM telefoane");
+        $row7 = mysqli_fetch_array($result7);
+        echo "Momentan avem ".$row6[0]." utilizatori pe site-ul nostru.<br>";
+        echo "Suma medie de inceput a produselor noastre este: ".round($row7[0],2). ' EURO.';
+        ?></h2>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
                 <option value="apple">Apple</option>d
                 <option value="samsung">Samsung</option>
                 <option value="oneplus">Oneplus</option>
             </select></p>
-        <p id="description2">Selectati modelul-ul dorit:
+        <p id="description2">Selectati modelul dorit:
             <br><br>
             <input type="text" placeholder="Model telefon" id="model" name="model"></p>
         <p id="description3">Selectati telefonul dorit:

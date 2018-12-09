@@ -23,7 +23,7 @@
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
-        border: 5px solid #4e4980;
+        border: 5px solid #50afc3;
         outline: none;
     }
     input[type=text]:focus {

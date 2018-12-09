@@ -10,7 +10,7 @@
         margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
     }
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;

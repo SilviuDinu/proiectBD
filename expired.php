@@ -1,4 +1,10 @@
 <html>
+<head>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/my.js"></script>
+    </head>
+</head>
 <style>
     h1, h2 {
         text-align: center;
@@ -14,7 +20,7 @@
     background-color: rgba(255,255,255,0.88);
     z-index: -1;
     border-radius: 25px;
-    border: 5px solid #ccc;
+    border: 5px solid #50afc3;
     height: auto;
     }
 </style>
