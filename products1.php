@@ -26,12 +26,12 @@
 <meta http-equiv="refresh" content="8;url=session_expired.php" />
 <p>
     <?php
-    $db="id8182920_proiect";
+    $db="proiect";
     $suma=$_GET['suma'];
     session_start();
     $telefon11 = $_SESSION['telefon'];
     $model1 = $_SESSION['model'];
-    $con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
+    $con=mysqli_connect("localhost", "root", "", "proiect");
     if (mysqli_connect_errno())
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -59,7 +59,7 @@
 //    $row1 = mysqli_fetch_array($result1);
 //    $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
 //    $row2 = mysqli_fetch_array($result2);
-
+    $fiinta=$_SESSION['utilizator'];
     $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
     $row1 = mysqli_fetch_array($result1);
     if ($suma > $row1[2] && $suma > $row1[3]){
@@ -67,6 +67,7 @@
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
         $_SESSION['suma']=$suma;
+        mysqli_query($con, "INSERT INTO licitatii (utilizator, suma) VALUES ('$fiinta', '$suma')");
     }
     else {
         echo '<br>Suma introdusa nu este suficient de mare, va rog introduceti o suma mai mare<br> decat suma de inceput si decat ultima suma licitata';

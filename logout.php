@@ -1,7 +1,7 @@
 <html>
 <?php
-$db="id8182920_proiect";
-$con=mysqli_connect("localhost", "id8182920_root", "parola123", "id8182920_proiect");
+$db="proiect";
+$con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
