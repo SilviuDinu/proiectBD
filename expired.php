@@ -104,7 +104,7 @@
         $mail->isHTML(true);                                  // Set email format to HTML
 
         $mail->Subject = 'Ati castigat licitatia';
-        $mail->Body    = 'Se pare ca ati castigat licitatia. Ati licitat:'.$row1[3].' EURO pentru '.$row11[1].$tel.'. Felicitari. <br> Evident nu trebuie sa platiti nimic pentru ca asta e doar o tema';
+        $mail->Body    = 'Salut, '.$om.'<br><br>Se pare ca ati castigat licitatia. Ati licitat:'.$row1[3].' EURO pentru '.$row11[1].$tel.'. Felicitari! <br> Evident nu trebuie sa platiti nimic pentru ca asta e doar o tema';
 //    $mail->AltBody = 'Anything you\'d like the mail body to have in it.';
         if(!$mail->send()) {
             echo 'There was an error sending the contact form email. <br>';
