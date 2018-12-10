@@ -63,7 +63,6 @@
     $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
     $row1 = mysqli_fetch_array($result1);
     if ($suma > $row1[2] && $suma > $row1[3]){
-        echo $model1;
         mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
