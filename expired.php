@@ -46,7 +46,7 @@
     {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
-    $result15 = mysqli_query($con, "SELECT * FROM licitatii WHERE suma = (SELECT MAX(suma) FROM licitatii)");
+    $result15 = mysqli_query($con, "SELECT * FROM licitatii WHERE suma = (SELECT MAX(suma) FROM licitatii WHERE telefon='$tel')");
     $row15=mysqli_fetch_array($result15);
     $result12 = mysqli_query($con, "SELECT email FROM users WHERE username = '$row15[0]'");
     $row12 = mysqli_fetch_array($result12);
