@@ -113,6 +113,8 @@
         $src='exclamation.png';
         echo '<img class="checkmark" src="' . $src . '">';
         echo '<p>Se pare ca cea mai mare suma este: <strong>'.$row1[3].'</strong> EURO pentru <strong>'.$row11[1].' '.$tel.'</strong>. Castigatorul este <strong>'.$row15[0].'</strong></p>';
+        mysqli_query($con, "DELETE FROM licitatii WHERE telefon='$tel'");
+
     }
     ?>
 </h1>
