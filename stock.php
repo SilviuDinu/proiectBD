@@ -1,14 +1,15 @@
 <html>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body background="tech.png">
 <style>
-    .holder{
+    /*.holder{*/
 
-        margin: 0 auto;
-    }
-    .holder h1{
-        text-align: center;
-    }
+        /*margin: 0 auto;*/
+    /*}*/
+    /*.holder h1{*/
+        /*text-align: center;*/
+    /*}*/
     input[type=number]:focus {
         background-color: lightskyblue;
         outline: none;
@@ -17,7 +18,7 @@
     input[type=submit] {
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: 50px;
         width: 150px;
     }
@@ -27,31 +28,31 @@
         text-align: center;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: 50px;
     }
     form{
-        position:absolute;
-        top:10%;
-        right:0;
-        left:0;
-        width: 50%;
-        margin: 0 auto;
+        /*position:absolute;*/
+        /*top:10%;*/
+        /*right:0;*/
+        /*left:0;*/
+        /*width: 50%;*/
+        /*margin: 0 auto;*/
         text-align: center;
     }
     body{
         background-size: cover;
     }
-    h1{
+    h1, p{
         text-align: center;
     }
     .iphone, .samsung, .oneplus{
-        width: 23%;
+        width: 22%;
         height: auto;
         margin: 0 auto;
         display: block;
         overflow: hidden;
-        margin-top: 20vw;
+        /*margin-top: 20vw;*/
         /*transition: width 2s;*/
         /*-webkit-transition: width 2s; !* Safari 3.1 to 6.0 *!*/
         -webkit-transition: -webkit-transform 1s ease-in-out;
@@ -67,21 +68,70 @@
         margin: 0 auto;
         width: 90%
     }
-
+    p {
+        font-size: 25px;
+    }
+    h2{
+        text-align: center;
+    }
+    #participa{
+        display: block;
+        margin: 0 auto;
+        /*border-radius: 30px;*/
+        /*box-sizing: border-box;*/
+        /*border: 5px solid #ccc;*/
+        /*height: 50px;*/
+        /*width: 150px;*/
+        outline: none;
+    }
 </style>
-<body background="sea.jpg">
+
 
 
 <div class="holder"><h1>Telefonul <?php echo $model.' '.$telefon.' de la brand-ul '.$brand;?> exista in stoc</h1>
 
+    <p style="font-size: 25px"><?php
+        $telefon11 = $_SESSION['telefon'];
+        $model1 = $_SESSION['model'];
+        $con=mysqli_connect("localhost", "root", "", "proiect");
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        $result5 = mysqli_query($con," SELECT COUNT(*) FROM telefoane WHERE model_ID=(SELECT model.model_ID FROM model WHERE nume_model='$model1')");
+        $row5 = mysqli_fetch_array($result5);
+        $stoc=$row5[0];
+        echo "Momentan exista <strong>".$stoc.'</strong> telefoane de tip '.$model1.' in stoc.';
+        $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
+        $row0 = mysqli_fetch_array($result0);
+        $nr=$row0[0];
+        $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
+        $row1= mysqli_fetch_array($result1);
+        echo "Suma de inceput este: <strong>". $row1[2].'</strong> EURO';
+        echo '<br>Ultima suma licitata este: <strong>'.$row1[3].'</strong> EURO';
+        ?>
+    </p>
+    <h2>Timp ramas:</h2>
+    <p id="demo"></p>
+    <script>
+      setInterval(function () {
+            var d = new Date(); //get current time
+            var seconds = d.getMinutes() * 60 + d.getSeconds(); //convet current mm:ss to seconds for easier caculation, we don't care hours.
+            var fiveMin = 60*2; //five minutes is 300 seconds!
+            var timeleft = fiveMin - seconds % fiveMin; // let's say now is 01:30, then current seconds is 60+30 = 90. And 90%300 = 90, finally 300-90 = 210. That's the time left!
+            var result = parseInt(timeleft / 60) + ':' + timeleft % 60; //formart seconds back into mm:ss
+          document.getElementById('demo').innerHTML = result;
+          if(timeleft <= 1) window.location="expired.php";
+        }, 1000);
+    </script>
     <form action="products1.php" method="get" id="sum" onsubmit="myFunction()">
-        <label for="suma"><strong><h2>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</h2></strong></label><br><br>
+        <label for="suma"><strong><p>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</p></strong></label><br><br>
         <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
 <div class="pic"><?php
     $src=null;
-    if($telefon=='6' && $brand=='Oneplus'){
+    if($model=='Oneplus' && $brand=='Oneplus'){
         $src='oneplus.png';
         echo '<img class="oneplus" src="' . $src . '">';
     }
@@ -100,33 +150,6 @@
 
     ?></div>
 
-<!--<script>-->
-<!--    function createDoll(userChoice) {-->
-<!--        var output = document.getElementById("display_here");-->
-<!--        output.innerHTML = "";-->
-<!---->
-<!--        var links = [-->
-<!--            "http://www.dreamomania.info/dreamdictionary/wp-content/uploads/2013/02/V.jpg",-->
-<!--            "http://i452.photobucket.com/albums/qq248/lostvegasvip/Burning-letter-P-psd26647.png",-->
-<!--            "http://www.arro-signs.co.uk/red-letter-s.jpg",-->
-<!--            "http://colleenmorrow.com/wp-content/uploads/2011/09/the-letter-m.png"-->
-<!--        ];-->
-<!---->
-<!--        var choices = ["Vintage", "Plaid", "Skater", "Maxi"];-->
-<!--        var sentence = "<p>You picked a " + choices[userChoice] + " doll.</p>"-->
-<!--        var img = '<img src="' + links[userChoice] + '">';-->
-<!---->
-<!--        output.innerHTML = sentence + img;-->
-<!--    }-->
-<!--</script>-->
-<!---->
-<!---->
-<!--<select name="choice" id="choice" size="3" onchange="createDoll(this.value)">-->
-<!--    <option value="0">Vintage</option>-->
-<!--    <option value="1">Plaid</option>-->
-<!--    <option value="2">Skater</option>-->
-<!--    <option value="3">Maxi</option>-->
-<!--</select>-->
 <div id="display_here"></div>
 
 

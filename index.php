@@ -1,12 +1,16 @@
 <html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="js/my.js"></script>
+</head>
 <style>
     input {
-        width: 20%;
+        width: 25%;
         padding: 12px 20px;
         margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
     }
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;
@@ -45,7 +49,9 @@
     input[type="submit"]:focus{
         outline: none;
     }
-
+    /*input[type="submit"] {*/
+        /*margin-left: 25px;*/
+    /*}*/
     form {
         position:absolute;
         top:35%;
@@ -112,6 +118,14 @@
         bottom: 20%;
         text-align: center;
     }
+    input#details{
+        position: relative;
+        /*top: 35%;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*left: 0;*/
+        /*display: block;*/
+    }
 
 </style>
 <body>
@@ -122,13 +136,13 @@
 
 <h1 style="font-style: italic; background-color: rgba(255,255,255,0.7); font-weight: bold; font-size: 50px;">Sistem de licitații online<br> pentru telefoane mobile</h1>
 <div class="container" style="text-align:center; vertical-align:middle">
-    <form action="login1.php" method="post">
+    <form action="login.php" method="post">
         <label for="name">Username</label>
         <input type="text" placeholder="Enter Username" id="name" name="name"><br>
         <label for="password">Password</label>
         <input type="password" placeholder="Enter Password" id="password" name="password"><br>
         <input type="submit" name="login" value="Login">
-        <input type="submit" name="register" value="Register">
+        <input type="submit" name="register" id="register" value="Register">
     </form>
 </div>
 
@@ -140,8 +154,7 @@
         <img src="oneplus.png" id="oneplus">
     </div>
 </div>
-<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p></div>
-
-
+<div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p>
+</div>
 </body>
 </html>

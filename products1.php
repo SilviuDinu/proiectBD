@@ -1,5 +1,5 @@
 <html>
-<body background="sea.jpg">
+<body background="tech.png">
 
 <style>
     p{
@@ -27,6 +27,7 @@
 <p>
     <?php
     $db="proiect";
+    $suma=$_GET['suma'];
     session_start();
     $telefon11 = $_SESSION['telefon'];
     $model1 = $_SESSION['model'];
@@ -46,37 +47,36 @@
 //    else if($model1=='Oneplus' || $model1=='oneplus')
 //    {
 //        $nr=4;
-//    }
+//
 
-    $suma=$_GET['suma'];
     echo 'Ati licitat suma de <strong>'.$suma.'</strong> EURO pentru '.$model1.' '.$telefon11;
 
     $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon = '$telefon11'");
     $row0 = mysqli_fetch_array($result0);
     $nr=$row0[0];
-    $result1 = mysqli_query($con,"SELECT starting_bid FROM telefoane WHERE phone_ID = $nr");
+    $_SESSION['nuru']=$nr;
+//    $result1 = mysqli_query($con,"SELECT starting_bid FROM telefoane WHERE phone_ID = $nr");
+//    $row1 = mysqli_fetch_array($result1);
+//    $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
+//    $row2 = mysqli_fetch_array($result2);
+
+    $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
     $row1 = mysqli_fetch_array($result1);
-    $result2 = mysqli_query($con,"SELECT last_bid FROM telefoane WHERE phone_ID = $nr");
-    //echo $result;
-    $row2 = mysqli_fetch_array($result2);
-    if ($suma > $row1[0] && $suma > $row2[0]){
-        mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr");
+    if ($suma > $row1[2] && $suma > $row1[3]){
+        echo $model1;
+        mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
+        $_SESSION['suma']=$suma;
     }
     else {
         echo '<br>Suma introdusa nu este suficient de mare, va rog introduceti o suma mai mare<br> decat suma de inceput si decat ultima suma licitata';
-        echo "<br>Suma de inceput este: <strong>". $row1[0].'</strong> EURO';
-        echo '<br>Ultima suma licitata care a depasit suma de inceput este: <strong>'.$row2[0].'</strong> EURO';
+        echo "<br>Suma de inceput este: <strong>". $row1[2].'</strong> EURO';
+        echo '<br>Ultima suma licitata care a depasit suma de inceput este: <strong>'.$row1[3].'</strong> EURO';
         $src='xmark.png';
         echo '<img class="xmark" src="' . $src . '">';
 
     }
-
-
-    //On page 2
-
-
     ?>
 </p>
 </body>

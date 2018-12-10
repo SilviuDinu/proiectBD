@@ -23,7 +23,7 @@
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         outline: none;
     }
     input[type=text]:focus {
@@ -52,7 +52,7 @@
         alert("Doar campurile completate vor fi luate in considerare");
     }
 </script>
-<body background="sea.jpg">
+<body background="tech.png">
 <h1 style="text-align: center; font-style: italic; font-weight: bold; font-size: 50px; padding: 15px 0px 0px 10px;">Introduceti datele pe care vreti sa le schimbati</h1>
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
