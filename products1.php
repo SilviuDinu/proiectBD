@@ -67,7 +67,7 @@
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
         $_SESSION['suma']=$suma;
-        mysqli_query($con, "INSERT INTO licitatii (utilizator, suma) VALUES ('$fiinta', '$suma')");
+        mysqli_query($con, "INSERT INTO licitatii (utilizator, suma, telefon) VALUES ('$fiinta', '$suma', '$telefon11')");
     }
     else {
         echo '<br>Suma introdusa nu este suficient de mare, va rog introduceti o suma mai mare<br> decat suma de inceput si decat ultima suma licitata';
