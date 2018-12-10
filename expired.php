@@ -54,6 +54,7 @@
     $result11= mysqli_query($con, "SELECT * FROM model WHERE model_ID = (SELECT model_ID FROM telefoane where telefon='$tel')");
     $row1 = mysqli_fetch_array($result1);
     $row11 = mysqli_fetch_array($result11);
+
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
     require 'vendor/autoload.php';

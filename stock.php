@@ -102,9 +102,10 @@
         $row5 = mysqli_fetch_array($result5);
         $stoc=$row5[0];
         echo "Momentan exista <strong>".$stoc.'</strong> telefoane de tip '.$model1.' in stoc.';
-        $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
+        $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon = '$telefon11' AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $row0 = mysqli_fetch_array($result0);
         $nr=$row0[0];
+
         $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
         $row1= mysqli_fetch_array($result1);
         echo "Suma de inceput este: <strong>". $row1[2].'</strong> EURO';

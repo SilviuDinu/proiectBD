@@ -66,8 +66,11 @@
         mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
-        $_SESSION['suma']=$suma;
+
+//        echo $suma;
+//        echo $telefon11;
         mysqli_query($con, "INSERT INTO licitatii (utilizator, suma, telefon) VALUES ('$fiinta', '$suma', '$telefon11')");
+        $_SESSION['suma']=$suma;
     }
     else {
         echo '<br>Suma introdusa nu este suficient de mare, va rog introduceti o suma mai mare<br> decat suma de inceput si decat ultima suma licitata';
