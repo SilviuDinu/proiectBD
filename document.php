@@ -145,7 +145,7 @@
 <!--        </div>-->
 
         <br><br><br>
-        <input type="submit"  id="auction" name="auction" value="Liciteaza">
+        <input type="submit"  id="auction" name="auction" value="Cauta">
     </form>
 <!--    <button onclick="myFunction()" style="margin-left: 42.5%">Try it</button>-->
 
