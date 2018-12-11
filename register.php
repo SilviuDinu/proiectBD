@@ -1,4 +1,3 @@
-
 <html>
 <body background="tech.png">
 <style>
@@ -65,6 +64,5 @@
         <input type="submit" name="register" value="Register">
     </form>
 </div>
-
 </body>
 </html>

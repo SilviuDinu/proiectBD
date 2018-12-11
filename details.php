@@ -3,7 +3,6 @@
     h1, h2 {
         text-align: center;
     }
-
     .container{
         width: 50%;
         margin: 0 auto;
@@ -21,7 +20,6 @@
 <?php
 
 if(isset($_GET['details'])){
-
         $db="proiect";
         session_start();
         $username=$_SESSION["utilizator"];
@@ -46,7 +44,6 @@ if(isset($_GET['details'])){
         echo "<h2>Suma medie de inceput a produselor noastre este: ".round($row7[0],2). ' EURO.</h2>';
         echo '<h2>Media ultimelor sume licitate este: '.round($row9[0],2).' EURO.</h2>';
         echo "<h2>Numar total de conturi create: ".$row8[0].'</h2>';
-
 }
 
 ?></div></body></h2></html>

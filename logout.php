@@ -16,7 +16,6 @@ if (isset($_POST['delete'])){
     $result = mysqli_query($con, "DELETE FROM users WHERE username='$nume'");
     echo "Contul cu username-ul ". $nume." a fost sters din baza de date";
 }
-
 ?>
 <head>
     <p style="font-size: 20px;">Apasati <a href="index.php">aici</a> pentru a va intoarce la pagina principala</p>

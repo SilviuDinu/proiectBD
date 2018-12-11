@@ -1,5 +1,4 @@
 <html>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body background="tech.png">
 <style>
@@ -58,8 +57,6 @@
         -webkit-transition: -webkit-transform 1s ease-in-out;
         transition:         transform 1s ease-in-out;
     }
-
-
     .iphone:hover, .samsung:hover, .oneplus:hover{
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
@@ -77,19 +74,10 @@
     #participa{
         display: block;
         margin: 0 auto;
-        /*border-radius: 30px;*/
-        /*box-sizing: border-box;*/
-        /*border: 5px solid #ccc;*/
-        /*height: 50px;*/
-        /*width: 150px;*/
         outline: none;
     }
 </style>
-
-
-
 <div class="holder"><h1>Telefonul <?php echo $model.' '.$telefon.' de la brand-ul '.$brand;?> exista in stoc</h1>
-
     <p style="font-size: 25px"><?php
         $telefon11 = $_SESSION['telefon'];
         $model1 = $_SESSION['model'];

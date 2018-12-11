@@ -1,4 +1,3 @@
-
 <html>
 <style>
     input {
@@ -67,6 +66,5 @@
         <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
     </form>
 </div>
-
 </body>
 </html>

@@ -25,7 +25,6 @@
        height: auto;
        box-sizing: border-box;
     }
-
     img:hover{
         width: 30% !important;
         height: auto;
@@ -49,9 +48,6 @@
     input[type="submit"]:focus{
         outline: none;
     }
-    /*input[type="submit"] {*/
-        /*margin-left: 25px;*/
-    /*}*/
     form {
         position:absolute;
         top:35%;
