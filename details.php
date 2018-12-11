@@ -23,7 +23,7 @@ if(isset($_GET['details'])){
         $db="proiect";
         session_start();
         $username=$_SESSION["utilizator"];
-        $bid=$_SESSION["model"];
+//        $bid=$_SESSION["model"];
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {

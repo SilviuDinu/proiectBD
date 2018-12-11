@@ -6,8 +6,9 @@
     </head>
 </head>
 <style>
-    h1, h2 {
+    h1, h2, p {
         text-align: center;
+        font-size: 25px;
     }
     .checkmark{
         width: 10%;
@@ -32,7 +33,7 @@
 </style>
 <body background="tech.png">
 <div class="container">
-<h1>
+<p>
     <?php
     session_start();
     $tel=$_SESSION['telefon'];
@@ -97,14 +98,15 @@
         $mail->Port = 587;                                    // TCP port to connect to
 
         $mail->From = "silviualex626@gmail.com";
-        $mail->FromName = "Silviu";
+        $mail->FromName = "Silviu_Licitatii";
         $mail->addAddress("$row12[0]", "$om");     // Add a recipient
         $mail->addAddress("silviualex626@gmail.com", "Silviu");     // Add a recipient
 
         $mail->isHTML(true);                                  // Set email format to HTML
 
-        $mail->Subject = 'Ati castigat licitatia';
-        $mail->Body    = 'Salut, '.$om.'<br><br>Se pare ca ati castigat licitatia. Ati licitat:'.$row1[3].' EURO pentru '.$row11[1].$tel.'. Felicitari! <br> Evident nu trebuie sa platiti nimic pentru ca asta e doar o tema';
+        $mail->Subject = 'Ati castigat licitatia!';
+        $mail->addEmbeddedImage('tibi.jpg','logoimg', 'tibi.jpg');
+        $mail->Body    = 'Salut, '.$om.'<br><br>Se pare ca ati castigat licitatia. Ati licitat:'.$row1[3].' EURO pentru '.$row11[1].' '.$tel.'. Felicitari! <br><br> Evident nu trebuie sa platiti nimic pentru ca asta e doar o tema.<br>Mai jos aveti factura. <img src=\"cid:logoimg\" />';
 //    $mail->AltBody = 'Anything you\'d like the mail body to have in it.';
         if(!$mail->send()) {
             echo 'There was an error sending the contact form email. <br>';
@@ -112,12 +114,12 @@
         }
         $src='exclamation.png';
         echo '<img class="checkmark" src="' . $src . '">';
-        echo '<p>Se pare ca cea mai mare suma este: <strong>'.$row1[3].'</strong> EURO pentru <strong>'.$row11[1].' '.$tel.'</strong>. Castigatorul este <strong>'.$row15[0].'</strong></p>';
+        echo '<p>Se pare ca cea mai mare suma este: <strong>'.$row1[3].'</strong> EURO pentru <strong>'.$row11[1].' '.$tel.'</strong>. Castigatorul este <strong>'.$row15[0].'</strong> si va fi contactat pe email</p>';
         mysqli_query($con, "DELETE FROM licitatii WHERE telefon='$tel'");
 
     }
     ?>
-</h1>
+</p>
 <h2><a href="index.php">Acasa</a></h2>
 </div>
 </body>
