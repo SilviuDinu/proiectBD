@@ -1,3 +1,9 @@
+<?php
+if(!$_SESSION['AUTH']){
+    echo '<meta http-equiv="refresh" content="0;url=index.php" />';
+    die('Forbidden');
+}
+?>
 <html>
 <style>
     body {

@@ -11,10 +11,12 @@ if (isset($_POST['login'])) {
     $username=$_POST['name'];
     session_start();
     $_SESSION['utilizator'] = $_POST['name'];
+    $_SESSION['AUTH']=false;
     $password=$_POST['password'];
     $result = mysqli_query($con,"SELECT * FROM users WHERE username='$username' and password='$password'");
     $row = mysqli_fetch_array($result);
     if(mysqli_num_rows($result) > 0 ) { //check if there is already an entry for that username
+        $_SESSION['AUTH']=true;
         include 'welcome.php';
     }
     else {
