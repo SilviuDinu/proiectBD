@@ -20,7 +20,7 @@
     input#prenume{
         margin-left: 8px;
     }
-    input[type=text],input[type=password]{
+    input[type=text],input[type=password],input[type=email]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
         border: 5px solid #50afc3;
@@ -32,6 +32,11 @@
         outline: none;
     }
     input[type=password]:focus {
+        background-color: lightskyblue;
+        width: 15%;
+        outline: none;
+    }
+    input[type=email]:focus {
         background-color: lightskyblue;
         width: 15%;
         outline: none;
@@ -60,7 +65,7 @@
         <label for="nname">Prenume</label>
         <input type="text" required id="prenume" pattern="[A-Za-z0-9]{2,}" name="prenume"><br>
         <label for="nname">Email</label>
-        <input type="text" required id="email" pattern="[A-Za-z0-9]{2,}" name="email"><br>
+        <input type="email" required id="email" pattern="[A-Za-z0-9]{2,}" name="email"><br>
         <input type="submit" name="register"  value="Register">
     </form>
 </div>

@@ -32,7 +32,7 @@ if(!(mysqli_num_rows($r1)>0))
     input#nprenume{
         margin-left: 8px;
     }
-    input[type=text],input[type=password]{
+    input[type=text],input[type=password], input[type=email]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
         border: 5px solid #50afc3;
@@ -44,6 +44,11 @@ if(!(mysqli_num_rows($r1)>0))
         outline: none;
     }
     input[type=password]:focus {
+        background-color: lightskyblue;
+        width: 15%;
+        outline: none;
+    }
+    input[type=email]:focus {
         background-color: lightskyblue;
         width: 15%;
         outline: none;
@@ -75,7 +80,7 @@ if(!(mysqli_num_rows($r1)>0))
         <br><label for="nnname">Prenume</label>
         <input type="text" id="nprenume" pattern="[A-Za-z0-9]{2,}" name="nprenume">
         <br> <label for="nnname">Email</label>
-        <input type="text" id="nemail" pattern="[A-Za-z0-9]{2,}" name="nemail"><br>
+        <input type="email" id="nemail" pattern="[A-Za-z0-9]{2,}" name="nemail"><br>
         <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
     </form>
 </div>
