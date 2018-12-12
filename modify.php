@@ -1,3 +1,9 @@
+<?php
+include 'auth.php';
+if(!isset($_POST['modifica'])){
+    die('Forbidden');
+}
+?>
 <html>
 <style>
     input {

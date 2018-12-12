@@ -1,3 +1,9 @@
+<?php
+include 'auth.php';
+if(!isset($_GET['details'])){
+    die('Forbidden');
+}
+?>
 <html>
 <style>
     h1, h2 {

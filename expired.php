@@ -1,3 +1,8 @@
+<?php
+//if(!isset($_GET['search'])){
+//    die('Forbidden');
+//}
+//?>
 <html>
 <head>
     <head>

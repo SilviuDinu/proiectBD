@@ -1,3 +1,9 @@
+<?php
+include 'auth.php';
+if(!isset($_GET['search'])){
+    die('Forbidden');
+}
+?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body background="tech.png">
@@ -46,7 +52,7 @@
         text-align: center;
     }
     .iphone, .samsung, .oneplus{
-        width: 22%;
+        width: 21%;
         height: auto;
         margin: 0 auto;
         display: block;

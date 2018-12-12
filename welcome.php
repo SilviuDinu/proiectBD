@@ -1,6 +1,10 @@
 <?php
-if(!$_SESSION['AUTH']){
-    echo '<meta http-equiv="refresh" content="0;url=index.php" />';
+//if(!defined('aut') ){
+//    die('Forbidden');
+//    exit();
+//}
+include 'auth.php';
+if(!defined('aut')){
     die('Forbidden');
 }
 ?>
