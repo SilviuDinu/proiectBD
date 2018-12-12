@@ -1,7 +1,14 @@
 <?php
-if(!$_SESSION['AUTH']){
-    echo '<meta http-equiv="refresh" content="0;url=index.php" />';
-    die('Forbidden');
+$con=mysqli_connect("localhost", "root", "", "proiect");
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$r1=mysqli_query($con, "SELECT * FROM loggedin");
+mysqli_fetch_array($r1);
+if(!(mysqli_num_rows($r1)>0))
+{
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
 }
 ?>
 <html>
@@ -205,12 +212,12 @@ if(!$_SESSION['AUTH']){
             </select></p>
         <p id="description2">Selectati modelul dorit:
             <br><br>
-            <input type="text" placeholder="Model telefon" id="model" name="model"></p>
+            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]{2,}" name="model"></p>
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"><br><br><br></p><br><br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]{,1}" name="telefon"><br><br><br></p><br><br><br>
         <br><br><br>
-        <input type="submit"  id="search" name="search" value="Cauta">
+        <input type="submit" id="search" name="search" value="Cauta">
     </form>
 </div>
 </body>

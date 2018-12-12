@@ -52,16 +52,16 @@
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
         <label for="nname">Username</label>
-        <input type="text" required id="nname" name="nname"><br>
+        <input type="text" required id="nname" pattern="[A-Za-z0-9]{2,}" name="nname"><br>
         <label for="npassword">Password</label>
-        <input type="password" required id="npassword" name="npassword"><br>
+        <input type="password" required id="npassword" pattern="[A-Za-z0-9]{2,}" name="npassword"><br>
         <label for="nname">Nume</label>
-        <input type="text" required id="nume" name="nume"><br>
+        <input type="text" required id="nume" pattern="[A-Za-z0-9]{2,}" name="nume"><br>
         <label for="nname">Prenume</label>
-        <input type="text" required id="prenume" name="prenume"><br>
+        <input type="text" required id="prenume" pattern="[A-Za-z0-9]{2,}" name="prenume"><br>
         <label for="nname">Email</label>
-        <input type="text" required id="email" name="email"><br>
-        <input type="submit" name="register" value="Register">
+        <input type="text" required id="email" pattern="[A-Za-z0-9]{2,}" name="email"><br>
+        <input type="submit" name="register"  value="Register">
     </form>
 </div>
 </body>
