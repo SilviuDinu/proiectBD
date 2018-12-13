@@ -52,7 +52,7 @@ if(!(mysqli_num_rows($r1)>0))
     <p>
         <?php
         $tel=$_SESSION['telefon'];
-        $sum= $_SESSION['suma'];
+        $sum=$_SESSION['suma'];
         $om=$_SESSION['utilizator'];
         session_abort();
         //Send the email
@@ -71,6 +71,7 @@ if(!(mysqli_num_rows($r1)>0))
         $row1 = mysqli_fetch_array($result1);
         $row11 = mysqli_fetch_array($result11);
         mysqli_query($con, "DELETE FROM loggedin WHERE username='$om'");
+        $_SESSION['loggedin'] = false;
 
         use PHPMailer\PHPMailer\Exception;
         use PHPMailer\PHPMailer\SMTP;

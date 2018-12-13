@@ -6,6 +6,7 @@
 //}
 //session_start();
 //$omul=$_SESSION['utilizator'];
+////$_SESSION['loggedin'] = false;
 //mysqli_query($con, "DELETE FROM loggedin WHERE username='$omul'");
 //?>
 <html>

@@ -11,12 +11,12 @@ if (isset($_POST['logout'])) {
 }
 session_start();
 $nume = $_SESSION['utilizator'];
-
 if (isset($_POST['delete'])){
     $result = mysqli_query($con, "DELETE FROM users WHERE username='$nume'");
     echo "Contul cu username-ul ". $nume." a fost sters din baza de date";
     mysqli_query($con, "DELETE FROM loggedin WHERE username='$nume'");
 }
+$_SESSION['loggedin'] = false;
 
 ?>
 <head>

@@ -1,15 +1,23 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi repejor</h2> <a href="index.php">ACASA</a>');
+}
 $con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-$r1=mysqli_query($con, "SELECT * FROM loggedin");
+$user=$_SESSION['utilizator'];
+$r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$user'");
 mysqli_fetch_array($r1);
 if(!(mysqli_num_rows($r1)>0))
 {
     exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
 }
+$brand=$_SESSION['brand'];
+$model=$_SESSION['model'];
+$telefon=$_SESSION['telefon'];
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
