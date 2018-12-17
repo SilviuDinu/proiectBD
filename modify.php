@@ -1,7 +1,14 @@
 <?php
-include 'auth.php';
-if(!isset($_POST['modifica'])){
-    die('Forbidden');
+$con=mysqli_connect("localhost", "root", "", "proiect");
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$r1=mysqli_query($con, "SELECT * FROM loggedin");
+mysqli_fetch_array($r1);
+if(!(mysqli_num_rows($r1)>0))
+{
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
 }
 ?>
 <html>
@@ -25,7 +32,7 @@ if(!isset($_POST['modifica'])){
     input#nprenume{
         margin-left: 8px;
     }
-    input[type=text],input[type=password]{
+    input[type=text],input[type=password], input[type=email]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
         border: 5px solid #50afc3;
@@ -37,6 +44,11 @@ if(!isset($_POST['modifica'])){
         outline: none;
     }
     input[type=password]:focus {
+        background-color: lightskyblue;
+        width: 15%;
+        outline: none;
+    }
+    input[type=email]:focus {
         background-color: lightskyblue;
         width: 15%;
         outline: none;
@@ -62,13 +74,13 @@ if(!isset($_POST['modifica'])){
 <div style="text-align:center; vertical-align:middle">
     <form action="new_user.php" method="post">
         <label for="nnpassword">Password</label>
-        <input type="password" id="nnpassword" name="nnpassword">
+        <input type="password" id="nnpassword" pattern="[A-Za-z0-9]{2,}" name="nnpassword">
         <br><label for="nnname">Nume</label>
-        <input type="text" id="nnume" name="nnume">
+        <input type="text" id="nnume" pattern="[A-Za-z0-9]{2,}" name="nnume">
         <br><label for="nnname">Prenume</label>
-        <input type="text" id="nprenume" name="nprenume">
+        <input type="text" id="nprenume" pattern="[A-Za-z0-9]{2,}" name="nprenume">
         <br> <label for="nnname">Email</label>
-        <input type="text" id="nemail" name="nemail"><br>
+        <input type="email" id="nemail" pattern="[A-Za-z0-9]{2,}" name="nemail"><br>
         <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
     </form>
 </div>

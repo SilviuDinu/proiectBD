@@ -1,3 +1,13 @@
+<?php
+//$con=mysqli_connect("localhost", "root", "", "proiect");
+//if (mysqli_connect_errno())
+//{
+//    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+//}
+//session_start();
+//$omul=$_SESSION['utilizator'];
+//mysqli_query($con, "DELETE FROM loggedin WHERE username='$omul'");
+//?>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -134,9 +144,9 @@
 <div class="container" style="text-align:center; vertical-align:middle">
     <form action="login.php" method="post">
         <label for="name">Username</label>
-        <input type="text" placeholder="Enter Username" id="name" name="name"><br>
+        <input type="text" placeholder="Enter Username" id="name" pattern="[A-Za-z0-9]{2,}" name="name"><br>
         <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" id="password" name="password"><br>
+        <input type="password" placeholder="Enter Password" id="password" pattern="[A-Za-z0-9]{2,}" name="password"><br>
         <input type="submit" name="login" value="Login">
         <input type="submit" name="register" id="register" value="Register">
     </form>

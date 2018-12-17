@@ -1,8 +1,16 @@
 <?php
-include 'auth.php';
-if(!isset($_GET['search'])){
-    die('Forbidden');
+$con=mysqli_connect("localhost", "root", "", "proiect");
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+$r1=mysqli_query($con, "SELECT * FROM loggedin");
+mysqli_fetch_array($r1);
+if(!(mysqli_num_rows($r1)>0))
+{
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
+}
+//$_SESSION['utilizator']=$_POST['name'];
 ?>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,7 +60,7 @@ if(!isset($_GET['search'])){
         text-align: center;
     }
     .iphone, .samsung, .oneplus{
-        width: 21%;
+        width: 22%;
         height: auto;
         margin: 0 auto;
         display: block;
@@ -87,6 +95,8 @@ if(!isset($_GET['search'])){
     <p style="font-size: 25px"><?php
         $telefon11 = $_SESSION['telefon'];
         $model1 = $_SESSION['model'];
+        $loggedin=$_SESSION['loggedin'];
+        echo 'Licitati ca cu ID-ul '.$loggedin.'. ';
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {
@@ -121,7 +131,7 @@ if(!isset($_GET['search'])){
     </script>
     <form action="products1.php" method="get" id="sum" onsubmit="myFunction()">
         <label for="suma"><strong><p>Introduceti suma pe care doriti sa o licitati, sau apasati <a href="index.php">aici</a> pentru a va deloga. Atentie, suma este in EURO</p></strong></label><br><br>
-        <input type="number" placeholder="Introduceti Suma" id="suma" name="suma"><br><br>
+        <input type="number" placeholder="Introduceti Suma" id="suma" pattern="[A-Za-z0-9]{2,}" name="suma"><br><br>
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
 <div class="pic"><?php

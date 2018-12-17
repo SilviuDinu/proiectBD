@@ -1,11 +1,14 @@
 <?php
-//if(!defined('aut') ){
-//    die('Forbidden');
-//    exit();
-//}
-include 'auth.php';
-if(!defined('aut')){
-    die('Forbidden');
+$con=mysqli_connect("localhost", "root", "", "proiect");
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$r1=mysqli_query($con, "SELECT * FROM loggedin");
+mysqli_fetch_array($r1);
+if(!(mysqli_num_rows($r1)>0))
+{
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
 }
 ?>
 <html>
@@ -145,7 +148,13 @@ if(!defined('aut')){
     <input type="submit" name="delete" value="Delete">
     <p id="log">
         <?php
-        $username=$_SESSION["utilizator"];
+        $username=$_SESSION['utilizator'];
+        $resulti = mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
+        $rowi = mysqli_fetch_array($resulti);
+        if($_SESSION['utilizator']!=$_SESSION['utilizator']){
+            mysqli_query($con, "SELECT * FROM loggedin ORDER BY ID DESC");
+        }
+        $_SESSION['loggedin']=$rowi[0];
         $db="proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
@@ -194,12 +203,15 @@ if(!defined('aut')){
     <h1><?php
         $db="proiect";
         $username=$_SESSION["utilizator"];
+        $result = mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
+        $row = mysqli_fetch_array($result);
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
+        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit! ID-ul tau este '.$row[0];
+        $_SESSION['loggedin']=$row[0];
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
@@ -209,12 +221,12 @@ if(!defined('aut')){
             </select></p>
         <p id="description2">Selectati modelul dorit:
             <br><br>
-            <input type="text" placeholder="Model telefon" id="model" name="model"></p>
+            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]{2,}" name="model"></p>
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"><br><br><br></p><br><br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]{,1}" name="telefon"><br><br><br></p><br><br><br>
         <br><br><br>
-        <input type="submit"  id="search" name="search" value="Cauta">
+        <input type="submit" id="search" name="search" value="Cauta">
     </form>
 </div>
 </body>
