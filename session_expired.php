@@ -27,6 +27,7 @@
 <h1>
     <?php
     echo 'Sesiunea a expirat, va rog sa va relogati din motive de securitate. ';
+    $_SESSION['loggedin'] = false;
     ?>
 </h1>
 <h2><a href="index.php">Acasa</a></h2>

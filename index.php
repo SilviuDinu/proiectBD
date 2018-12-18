@@ -1,17 +1,20 @@
 <?php
-//$con=mysqli_connect("localhost", "root", "", "proiect");
+//$con=mysqli_connect("localhost", ""root"", "", "proiect");
 //if (mysqli_connect_errno())
 //{
 //    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 //}
 //session_start();
 //$omul=$_SESSION['utilizator'];
+////$_SESSION['loggedin'] = false;
 //mysqli_query($con, "DELETE FROM loggedin WHERE username='$omul'");
 //?>
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/my.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 <style>
     input {
@@ -34,6 +37,9 @@
        max-width: 100%;
        height: auto;
        box-sizing: border-box;
+    }
+    div#particles-js {
+        background-color: #546398;
     }
     img:hover{
         width: 30% !important;
@@ -73,12 +79,16 @@
         float: left;
         width: 25%;
         margin-top: 90px;
+        z-index: 1;
+        position: relative;
     }
    img#oneplus {
         float: right;
         width: 25%;
        margin-top: 90px;
         right: 0;
+       z-index: 1;
+       position: relative;
     }
    h1{
        position: absolute;
@@ -89,40 +99,45 @@
        margin: 0 auto;
        text-align: center;
    }
-   }
+    canvas.particles-js-canvas-el{
+        position: absolute;
+    }
     .container{
         width: 50%;
         margin: 0 auto;
-       background-color: black;
-        z-index: 0;
-        background-color: rgba(255,255,255,0.6);
+       /*background-color: black;*/
+        /*z-index: 0;*/
+        /*background-color: rgba(255,255,255,0.6);*/
     }
-    #video {
-       position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -4;
-    }
+    /*#video {*/
+       /*position: fixed;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*min-width: 100%;*/
+        /*min-height: 100%;*/
+        /*z-index: -4;*/
+    /*}*/
     p{
         text-align: center;
         vertical-align: center;
         bottom: 0;
         margin-left: auto;
         margin-right: auto;
+        font-size: 20px;
     }
     .footer{
         width: 100%;
         height: 50px;
         -moz-border-radius: 35px;
         border-radius: 35px;
-        background-color: Black;
         color: #ffffff;
         position: fixed;
         margin: 0 auto;
         bottom: 20%;
         text-align: center;
+    }
+    label{
+        font-size: 15px;
     }
     input#details{
         position: relative;
@@ -135,30 +150,35 @@
 
 </style>
 <body>
-<video autoplay muted loop id="video">
-    <source src="tech.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-</video>
+<!--<video autoplay muted loop id="video">-->
+<!--    <source src="tech.mp4" type="video/mp4">-->
+<!--    Your browser does not support HTML5 video.-->
+<!--</video>-->
+<div id="particles-js">
+        <img src="iphone.png" id="iphone">
 
-<h1 style="font-style: italic; background-color: rgba(255,255,255,0.7); font-weight: bold; font-size: 50px;">Sistem de licitații online<br> pentru telefoane mobile</h1>
+
+        <img src="oneplus.png" id="oneplus">
+    </div>
+<script src="particles.js/particles.js"></script>
+<script src="particles.js/demo/js/app.js"></script>
+
+<!-- stats.js -->
+<script src="particles.js/demo/js/lib/stats.js"></script>
+<h1 style="background-color: rgba(255,255,255,0.5); font-weight: bold; font-size: 50px;">Sistem de licitații online<br> pentru telefoane mobile</h1>
 <div class="container" style="text-align:center; vertical-align:middle">
     <form action="login.php" method="post">
         <label for="name">Username</label>
-        <input type="text" placeholder="Enter Username" id="name" pattern="[A-Za-z0-9]{2,}" name="name"><br>
+        <input type="text" placeholder="Enter Username" id="name" pattern="[A-Za-z0-9]+" name="name"><br>
         <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" id="password" pattern="[A-Za-z0-9]{2,}" name="password"><br>
+        <input type="password" placeholder="Enter Password" id="password" pattern="[A-Za-z0-9]+" name="password"><br>
         <input type="submit" name="login" value="Login">
         <input type="submit" name="register" id="register" value="Register">
     </form>
 </div>
 
 <div class="row">
-    <div class="column">
-        <img src="iphone.png" id="iphone">
-    </div>
-    <div class="column">
-        <img src="oneplus.png" id="oneplus">
-    </div>
+
 </div>
 <div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p>
 </div>

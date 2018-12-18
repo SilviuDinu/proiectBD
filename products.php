@@ -1,5 +1,5 @@
 <?php
-$db="proiect";
+$db="epiz_23148243_proiect";
 $con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
@@ -11,6 +11,7 @@ $telefon=$_GET['telefon'];
 session_start();
 $_SESSION['model'] = $model;
 $_SESSION['telefon'] = $telefon;
+$_SESSION['brand'] = $brand;
 $brand=ucfirst($brand);
 $brand_ID=null;
 $phone_ID=null;
@@ -31,10 +32,10 @@ if(mysqli_num_rows($result0) > 0 && mysqli_num_rows($result00) > 0  && mysqli_nu
 }
 $result3 = mysqli_query($con,"SELECT * FROM telefoane WHERE phone_ID='$phone_ID' and brand_ID='$brand_ID' and model_ID='$model_ID'");
 if(mysqli_num_rows($result3) > 0) {
-    include 'stock.php';
+    header('Location: stock.php');
 }
 else {
-    include 'nostock.php';
+    header('Location: nostock.php');
 }
 
 ?>

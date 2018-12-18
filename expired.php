@@ -1,10 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi repejor</h2> <a href="index.php">ACASA</a>');
+}
 $con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-session_start();
 $omul=$_SESSION['utilizator'];
 $r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$omul'");
 mysqli_fetch_array($r1);
@@ -19,6 +22,9 @@ if(!(mysqli_num_rows($r1)>0))
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/my.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
+
     </head>
 </head>
 <style>
@@ -37,22 +43,37 @@ if(!(mysqli_num_rows($r1)>0))
     }
     .container{
         width: 75%;
+        position: relative;
         margin: 0 auto;
-        margin-top: 15vw !important;
+        /*margin-top: 10vw !important;*/
         /*background-image: linear-gradient(lightskyblue , whitesmoke);*/
         background-color: rgba(255,255,255,0.88);
-        z-index: -1;
+        top: 30%;
         border-radius: 25px;
         border: 5px solid #50afc3;
         height: auto;
+        font-size: 18px;
+    }
+    canvas.particles-js-canvas-el{
+        position: absolute;
+    }
+    div#particles-js {
+        background-color: #546398;
     }
 </style>
 <body background="tech.png">
+<div id="particles-js">
+    <script src="particles.js/particles.js"></script>
+    <script src="particles.js/demo/js/app.js"></script>
+
+    <!-- stats.js -->
+    <script src="particles.js/demo/js/lib/stats.js"></script>
+    <img class="checkmark" src="exclamation.png">'
 <div class="container">
     <p>
         <?php
         $tel=$_SESSION['telefon'];
-        $sum= $_SESSION['suma'];
+        $sum=$_SESSION['suma'];
         $om=$_SESSION['utilizator'];
         session_abort();
         //Send the email
@@ -71,6 +92,7 @@ if(!(mysqli_num_rows($r1)>0))
         $row1 = mysqli_fetch_array($result1);
         $row11 = mysqli_fetch_array($result11);
         mysqli_query($con, "DELETE FROM loggedin WHERE username='$om'");
+        $_SESSION['loggedin'] = false;
 
         use PHPMailer\PHPMailer\Exception;
         use PHPMailer\PHPMailer\SMTP;
@@ -128,14 +150,16 @@ if(!(mysqli_num_rows($r1)>0))
                 echo 'There was an error sending the contact form email. <br>';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             }
-            $src='exclamation.png';
-            echo '<img class="checkmark" src="' . $src . '">';
+//            $src='exclamation.png';
+//            echo '<img class="checkmark" src="' . $src . '">';
             echo '<p>Se pare ca cea mai mare suma este: <strong>'.$row1[3].'</strong> EURO pentru <strong>'.$row11[1].' '.$tel.'</strong>. Castigatorul este <strong>'.$row15[0].'</strong> si va fi contactat pe email</p>';
             mysqli_query($con, "DELETE FROM licitatii WHERE telefon='$tel'");
+            mysqli_query($con, "UPDATE telefoane SET `last_bid` = '0' WHERE telefon='$tel'");
         }
         ?>
     </p>
     <h2><a href="index.php">Acasa</a></h2>
+</div>
 </div>
 </body>
 </html>

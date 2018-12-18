@@ -1,10 +1,15 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi repejor</h2> <a href="index.php">ACASA</a>');
+}
 $con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-$r1=mysqli_query($con, "SELECT * FROM loggedin");
+$user=$_SESSION['utilizator'];
+$r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$user'");
 mysqli_fetch_array($r1);
 if(!(mysqli_num_rows($r1)>0))
 {
@@ -12,19 +17,26 @@ if(!(mysqli_num_rows($r1)>0))
 }
 ?>
 <html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
+</head>
 <style>
     body {
         font-family: "Libre Baskerville", Sans-serif;
         font-weight: 50;
     }
+
     .is-right{
         width: 22.5%;
         float: left;
-        background-color: rgba(255,255,255,0.88);
-        z-index: -1;
+        background-color: rgba(255,255,255,0.82);
+        z-index: 0;
         border-radius: 25px;
         border: 5px solid #50afc3;
         height: auto;
+        position: absolute;
+        margin-top: 10px;
     }
     input[type=submit]{
         width: auto;
@@ -38,17 +50,20 @@ if(!(mysqli_num_rows($r1)>0))
         border-radius: 30px;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 10px;
     }
     .container{
         width: 75%;
         margin: 0 0 0 auto;
         float:right;
         /*background-image: linear-gradient(lightskyblue , whitesmoke);*/
-        background-color: rgba(255,255,255,0.88);
-        z-index: -1;
+        background-color: rgba(255,255,255,0.82);
+        z-index: 0;
         border-radius: 25px;
         border: 5px solid #50afc3;
         height: auto;
+        position: relative;
+        margin-top: 10px;
     }
     .description, ul, li, p:not(#log){
         width: 33.33%;
@@ -77,20 +92,21 @@ if(!(mysqli_num_rows($r1)>0))
         font-family: "Libre Baskerville", Sans-serif;
     }
     h2, h1{
-        text-align: center;  font-style: italic; font-weight: normal;
-        font-size: 25px;
+        text-align: center;  font-weight: normal;
+        font-size: 30px;
     }
-    #video {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -6;
-    }
+    /*#video {*/
+        /*position: fixed;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*min-width: 100%;*/
+        /*min-height: 100%;*/
+        /*z-index: -6;*/
+    /*}*/
     #doc{
         width: 100%;
         margin: 0 auto;
+        margin-top: 35px;
     }
     select{
         /*margin-left: 5%;*/
@@ -100,7 +116,7 @@ if(!(mysqli_num_rows($r1)>0))
         text-align: center;
         font: inherit !important;
     }
-    input#search{
+    input#search, input#add{
         width: 15%;
         display: block;
         margin: 10px auto;
@@ -134,27 +150,39 @@ if(!(mysqli_num_rows($r1)>0))
         box-sizing: border-box;
         border: 5px solid #50afc3;
     }
+    canvas.particles-js-canvas-el{
+        position: absolute;
+    }
+    div#particles-js {
+        background-color: #546398;
+    }
+    p{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
 </style>
 <body>
-<video autoplay muted loop id="video">
-    <source src="tech.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-</video>
+<!--<video autoplay muted loop id="video">-->
+<!--    <source src="tech.mp4" type="video/mp4">-->
+<!--    Your browser does not support HTML5 video.-->
+<!--</video>-->
+<div id="particles-js">
+<script src="particles.js/particles.js"></script>
+<script src="particles.js/demo/js/app.js"></script>
+
+<!-- stats.js -->
+<script src="particles.js/demo/js/lib/stats.js"></script>
 <div class="is-right">
 <form action="logout.php" method="post">
-    <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 18px; font-style: italic;"><?php echo $_SESSION["utilizator"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
+    <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 25px; font-style: italic;"><?php echo $_SESSION["utilizator"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
     <input type="submit" name="logout" value="Logout">
+    <hr>
     <p id="log">Doriti sa va stergeti contul?</p>
     <input type="submit" name="delete" value="Delete">
+    <hr>
     <p id="log">
         <?php
-        $username=$_SESSION['utilizator'];
-        $resulti = mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
-        $rowi = mysqli_fetch_array($resulti);
-        if($_SESSION['utilizator']!=$_SESSION['utilizator']){
-            mysqli_query($con, "SELECT * FROM loggedin ORDER BY ID DESC");
-        }
-        $_SESSION['loggedin']=$rowi[0];
+        $username=$_SESSION["utilizator"];
         $db="proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
@@ -167,7 +195,7 @@ if(!(mysqli_num_rows($r1)>0))
                     $i++;
                         switch ($i) {
                             case "1":
-                                echo "<br>Username: ";
+                                echo "Username: ";
                                 echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "2":
@@ -193,7 +221,7 @@ if(!(mysqli_num_rows($r1)>0))
 </form>
 <form action="new_user.php" method="post">
     <input type="submit" name="modifica" id="modifica" value="Modifica">
-</form>
+</form><hr>
     <p id="log">Detalii despre site-ul nostru</p>
     <form action="details.php" method="get">
         <input type="submit" name="details"  id="details"  value="Detalii">
@@ -203,31 +231,53 @@ if(!(mysqli_num_rows($r1)>0))
     <h1><?php
         $db="proiect";
         $username=$_SESSION["utilizator"];
-        $result = mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
-        $row = mysqli_fetch_array($result);
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
-        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit! ID-ul tau este '.$row[0];
-        $_SESSION['loggedin']=$row[0];
+        echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
-                <option value="apple">Apple</option>d
+                <option value="apple">Apple</option>
                 <option value="samsung">Samsung</option>
                 <option value="oneplus">Oneplus</option>
             </select></p>
-        <p id="description2">Selectati modelul dorit:
-            <br><br>
-            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]{2,}" name="model"></p>
+        <p id="description2">Selectati modelul dorit:<br><br><select name="model" style="height: 20px;">
+            <option value="Iphone">Iphone</option>
+            <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+<!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]{,1}" name="telefon"><br><br><br></p><br><br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
         <br><br><br>
         <input type="submit" id="search" name="search" value="Cauta">
     </form>
+
+    <?php
+        if($_SESSION['utilizator']=='admin'){
+            echo '<br><hr><br><br><form action="add.php" method="get" id="add"><p class="description">Adaugati brand: <br><br><select name="brand" style="height: 20px;">
+                <option value="apple">Apple</option>
+                <option value="samsung">Samsung</option>
+                <option value="oneplus">Oneplus</option>
+            </select></p>
+        <p id="description2">Adaugati model:<br><br><select name="model" style="height: 20px;">
+                <option value="Iphone">Iphone</option>
+                <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+        <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
+        <p id="description3">Adaugati telefon:
+            <br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
+        <br><br><br>
+        <input type="submit" id="add" name="add" value="Adauga in stoc">
+    </form>';
+        }
+    ?>
+</div>
+
 </div>
 </body>
 </html>
