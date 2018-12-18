@@ -18,8 +18,8 @@ mysqli_close($link);
 ?>
 
 <form action="welcome.php" method="post">
-    Name: <input type="text" name="name"><br>
-    E-mail: <input type="text" name="email"><br>
+    Name: <input type="text" pattern="[A-Za-z0-9]{2,}" name="name"><br>
+    E-mail: <input type="text" pattern="[A-Za-z0-9]{2,}" name="email"><br>
     <input type="submit">
 </form>
 

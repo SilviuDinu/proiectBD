@@ -1,17 +1,41 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi repejor</h2> <a href="index.php">ACASA</a>');
+}
+$con=mysqli_connect("localhost", "root", "", "proiect");
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$user=$_SESSION['utilizator'];
+$r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$user'");
+mysqli_fetch_array($r1);
+if(!(mysqli_num_rows($r1)>0))
+{
+    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
+}
+?>
 <html>
+<head>
+    <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
+</head>
 <style>
     body {
         font-family: "Libre Baskerville", Sans-serif;
         font-weight: 50;
     }
+
     .is-right{
         width: 22.5%;
         float: left;
-        background-color: rgba(255,255,255,0.88);
-        z-index: -1;
+        background-color: rgba(255,255,255,0.82);
+        z-index: 0;
         border-radius: 25px;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: auto;
+        position: absolute;
+        margin-top: 10px;
     }
     input[type=submit]{
         width: auto;
@@ -25,18 +49,20 @@
         border-radius: 30px;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 10px;
     }
     .container{
         width: 75%;
         margin: 0 0 0 auto;
         float:right;
-        margin-top: 2vw !important;
         /*background-image: linear-gradient(lightskyblue , whitesmoke);*/
-        background-color: rgba(255,255,255,0.88);
-        z-index: -1;
+        background-color: rgba(255,255,255,0.82);
+        z-index: 0;
         border-radius: 25px;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
         height: auto;
+        position: relative;
+        margin-top: 10px;
     }
     .description, ul, li, p:not(#log){
         width: 33.33%;
@@ -65,19 +91,21 @@
         font-family: "Libre Baskerville", Sans-serif;
     }
     h2, h1{
-        text-align: center;  font-style: italic; font-weight: normal; font-size: 30px
+        text-align: center;  font-weight: normal;
+        font-size: 30px;
     }
-    #video {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -6;
-    }
+    /*#video {*/
+        /*position: fixed;*/
+        /*right: 0;*/
+        /*bottom: 0;*/
+        /*min-width: 100%;*/
+        /*min-height: 100%;*/
+        /*z-index: -6;*/
+    /*}*/
     #doc{
         width: 100%;
         margin: 0 auto;
+        margin-top: 35px;
     }
     select{
         /*margin-left: 5%;*/
@@ -87,7 +115,7 @@
         text-align: center;
         font: inherit !important;
     }
-    input#search{
+    input#search, input#add, input#sterge{
         width: 15%;
         display: block;
         margin: 10px auto;
@@ -106,7 +134,7 @@
         width: 12%;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
     }
     input[type=text],input[type=password]{
         transition: width 0.4s ease-in-out;
@@ -119,20 +147,38 @@
         margin: 5px;
         border-radius: 30px;
         box-sizing: border-box;
-        border: 5px solid #ccc;
+        border: 5px solid #50afc3;
+    }
+    canvas.particles-js-canvas-el{
+        position: absolute;
+    }
+    div#particles-js {
+        background-color: #546398;
+    }
+    p{
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 </style>
 <body>
-<video autoplay muted loop id="video">
-    <source src="tech.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-</video>
+<!--<video autoplay muted loop id="video">-->
+<!--    <source src="tech.mp4" type="video/mp4">-->
+<!--    Your browser does not support HTML5 video.-->
+<!--</video>-->
+<div id="particles-js">
+<script src="particles.js/particles.js"></script>
+<script src="particles.js/demo/js/app.js"></script>
+
+<!-- stats.js -->
+<script src="particles.js/demo/js/lib/stats.js"></script>
 <div class="is-right">
 <form action="logout.php" method="post">
-    <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 18px; font-style: italic;"><?php echo $_SESSION["utilizator"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
+    <p id="log"><?php echo 'Sunteti logat cu username-ul ';?><strong style="font-size: 25px; font-style: italic;"><?php echo $_SESSION["utilizator"];?></strong><?php echo ', bine ai venit!';?><br><br>Doriti sa va delogati? Apasati butonul de mai jos:</p>
     <input type="submit" name="logout" value="Logout">
+    <hr>
     <p id="log">Doriti sa va stergeti contul?</p>
     <input type="submit" name="delete" value="Delete">
+    <hr>
     <p id="log">
         <?php
         $username=$_SESSION["utilizator"];
@@ -148,7 +194,7 @@
                     $i++;
                         switch ($i) {
                             case "1":
-                                echo "<br>Username: ";
+                                echo "Username: ";
                                 echo '<strong>'.$row[$i].'</strong>';
                                 $i++;
                             case "2":
@@ -174,27 +220,79 @@
 </form>
 <form action="new_user.php" method="post">
     <input type="submit" name="modifica" id="modifica" value="Modifica">
-</form>
+</form><hr>
+    <p id="log">Detalii despre site-ul nostru</p>
+    <form action="details.php" method="get">
+        <input type="submit" name="details"  id="details"  value="Detalii">
+    </form>
 </div>
 <div class="container">
     <h1><?php
+        $db="proiect";
+        $username=$_SESSION["utilizator"];
+        $con=mysqli_connect("localhost", "root", "", "proiect");
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
         echo 'Salut, '.$_SESSION["utilizator"].', bine ai venit!';
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
-                <option value="apple">Apple</option>d
-                <option value="samsung">Samsung</option>
-                <option value="oneplus">Oneplus</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
             </select></p>
-        <p id="description2">Selectati modelul-ul dorit:
-            <br><br>
-            <input type="text" placeholder="Model telefon" id="model" name="model"></p>
+        <p id="description2">Selectati modelul dorit:<br><br><select name="model" style="height: 20px;">
+            <option value="Iphone">Iphone</option>
+            <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+<!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" name="telefon"><br><br><br></p><br><br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
         <br><br><br>
-        <input type="submit"  id="search" name="search" value="Cauta">
+        <input type="submit" id="search" name="search" value="Cauta">
     </form>
+
+    <?php
+        if($_SESSION['utilizator']=='admin'){
+            echo '<br><hr><br><br><form action="add.php" method="get" id="add"><p class="description">Adaugati brand: <br><br><select name="brand" style="height: 20px;">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
+            </select></p>
+        <p id="description2">Adaugati model:<br><br><select name="model" style="height: 20px;">
+                <option value="Iphone">Iphone</option>
+                <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+        <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
+        <p id="description3">Adaugati telefon:
+            <br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
+        <br><br><br>
+        <input type="submit" id="add" name="add" value="Adauga in stoc">
+    </form>';
+            echo '<br><hr><br><br><form action="add.php" method="get" id="add"><p class="description">Stergeti brand: <br><br><select name="brand" style="height: 20px;">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
+            </select></p>
+        <p id="description2">Stergeti model:<br><br><select name="model" style="height: 20px;">
+                <option value="Iphone">Iphone</option>
+                <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+        <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
+        <p id="description3">Stergeti telefon:
+            <br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
+        <br><br><br>
+        <input type="submit" id="sterge" name="sterge" value="Sterge din stoc">
+    </form>';
+        }
+    ?>
+</div>
+
 </div>
 </body>
 </html>

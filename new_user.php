@@ -23,14 +23,12 @@ if(isset($_POST['register'])) {
     }
 }
 if(isset($_POST['modifica'])){
-    include 'modify.php';
+    header('Location: modify.php');
 }
 if(isset($_POST['modifica2'])){
     session_start();
     $user=$_SESSION['utilizator'];
-
     $db = "proiect";
-
     $con = mysqli_connect("localhost", "root", "", "proiect");
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -39,6 +37,7 @@ if(isset($_POST['modifica2'])){
     $email = $_POST['nemail'];
     $prenume = $_POST['nprenume'];
     $nume = $_POST['nnume'];
+    $_SESSION['loggedin'] = false;
     $result = mysqli_query($con,"SELECT * FROM users WHERE username='$user'");
     $row = mysqli_fetch_array($result);
     if($npass != null) {
