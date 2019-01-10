@@ -77,7 +77,7 @@ if(!(mysqli_num_rows($r1)>0))
         $om=$_SESSION['utilizator'];
         session_abort();
         //Send the email
-        $db="proiect";
+        $db="epiz_23148243_proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {

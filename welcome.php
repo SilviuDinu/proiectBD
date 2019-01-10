@@ -18,7 +18,6 @@ if(!(mysqli_num_rows($r1)>0))
 ?>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 <style>
@@ -45,6 +44,20 @@ if(!(mysqli_num_rows($r1)>0))
     p{
         margin-left: 10%;
     }
+@media (max-height: 900px){
+    hr{
+        display: none !important;
+    }
+    form#add{
+        height: 23% !important;
+    }
+   #doc{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 0px;
+    }
+}
+
     input {
         padding: 12px 20px;
         border-radius: 30px;
@@ -116,7 +129,7 @@ if(!(mysqli_num_rows($r1)>0))
         text-align: center;
         font: inherit !important;
     }
-    input#search, input#add{
+    input#search, input#add, input#sterge{
         width: 15%;
         display: block;
         margin: 10px auto;
@@ -183,7 +196,7 @@ if(!(mysqli_num_rows($r1)>0))
     <p id="log">
         <?php
         $username=$_SESSION["utilizator"];
-        $db="proiect";
+        $db="epiz_23148243_proiect";
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
         {
@@ -200,7 +213,7 @@ if(!(mysqli_num_rows($r1)>0))
                                 $i++;
                             case "2":
                                 echo "<br>Password: ";
-                                echo '<strong>'.$row[$i].'</strong>';
+                                echo '<a href="forgot.php">Am uitat parola</a>'; 
                                 $i++;
                             case "3":
                                 echo "<br>Nume: ";
@@ -229,7 +242,7 @@ if(!(mysqli_num_rows($r1)>0))
 </div>
 <div class="container">
     <h1><?php
-        $db="proiect";
+        $db="epiz_23148243_proiect";
         $username=$_SESSION["utilizator"];
         $con=mysqli_connect("localhost", "root", "", "proiect");
         if (mysqli_connect_errno())
@@ -240,9 +253,9 @@ if(!(mysqli_num_rows($r1)>0))
         ?></h1>
     <h2>Alegeti produsul la care doriti sa licitati</h2>
     <form action="products.php" method="get" id="doc"><p class="description">Selectati brand-ul dorit: <br><br><select name="telefoane" style="height: 20px;">
-                <option value="apple">Apple</option>
-                <option value="samsung">Samsung</option>
-                <option value="oneplus">Oneplus</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
             </select></p>
         <p id="description2">Selectati modelul dorit:<br><br><select name="model" style="height: 20px;">
             <option value="Iphone">Iphone</option>
@@ -251,28 +264,43 @@ if(!(mysqli_num_rows($r1)>0))
 <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
         <p id="description3">Selectati telefonul dorit:
             <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
-        <br><br><br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br></p>
+       
         <input type="submit" id="search" name="search" value="Cauta">
     </form>
 
     <?php
         if($_SESSION['utilizator']=='admin'){
-            echo '<br><hr><br><br><form action="add.php" method="get" id="add"><p class="description">Adaugati brand: <br><br><select name="brand" style="height: 20px;">
-                <option value="apple">Apple</option>
-                <option value="samsung">Samsung</option>
-                <option value="oneplus">Oneplus</option>
+            echo '<br><hr><form action="add.php" method="get" id="add"><p class="description">Adaugati brand: <br><select name="brand" style="height: 20px;">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
             </select></p>
-        <p id="description2">Adaugati model:<br><br><select name="model" style="height: 20px;">
+        <p id="description2">Adaugati model:<br><select name="model" style="height: 20px;">
                 <option value="Iphone">Iphone</option>
                 <option value="Galaxy">Galaxy</option>
                 <option value="Oneplus">Oneplus</option></select></p>
         <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
         <p id="description3">Adaugati telefon:
-            <br><br>
-            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"><br><br><br></p><br><br><br>
-        <br><br><br>
+            <br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"></p>
+        
         <input type="submit" id="add" name="add" value="Adauga in stoc">
+    </form>';
+            echo '<br><hr><form action="add.php" method="get" id="add"><p class="description">Stergeti brand: <br><select name="brand" style="height: 20px;">
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Oneplus">Oneplus</option>
+            </select></p>
+        <p id="description2">Stergeti model:<br><select name="model" style="height: 20px;">
+                <option value="Iphone">Iphone</option>
+                <option value="Galaxy">Galaxy</option>
+                <option value="Oneplus">Oneplus</option></select></p>
+        <!--            <input type="text" placeholder="Model telefon" id="model" pattern="[A-Za-z0-9]+" name="model"></p>-->
+        <p id="description3">Stergeti telefon:
+            <br>
+            <input type="text" placeholder="Nume Telefon" id="telefon" pattern="[A-Za-z0-9]+" title="Va rog doar caractere alfa-numerice" name="telefon"></p>
+        <input type="submit" id="sterge" name="sterge" value="Sterge din stoc">
     </form>';
         }
     ?>
@@ -280,4 +308,4 @@ if(!(mysqli_num_rows($r1)>0))
 
 </div>
 </body>
-</html>
+</html>	

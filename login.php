@@ -1,5 +1,5 @@
 <?php
-$db="proiect";
+$db="epiz_23148243_proiect";
 ini_set('session.cache_limiter','public');
 session_cache_limiter(false);
 if (isset($_POST['login'])) {
@@ -21,7 +21,13 @@ if (isset($_POST['login'])) {
         header('Location: welcome.php');
     }
     else {
-        echo "Parola sau Username gresit. Daca nu aveti cont, mergeti inapoi si apsati pe Register";
+        echo "Parola sau Username gresit. Daca nu aveti cont, mergeti inapoi si apasati pe Register sau Am uitat parola";
+        echo '<body>
+      <form action="forgot1.php" method="post" style="margin-top: 30px;">
+      <input type="email" required id="email" pattern="[A-Za-z0-9_.@]+" placeholder="Introduceti email" name="email"><br>
+      <input type="submit" name="forgot" style="margin-top:18px;" value="Am uitat parola">
+         </form>
+         </body>';
     }
 } else if (isset($_POST['register'])){
     header('Location: register.php');
@@ -29,4 +35,4 @@ if (isset($_POST['login'])) {
 else {
     echo '<h1>Tzeapa</h1>';
 }
-?>
+?>	

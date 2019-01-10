@@ -1,6 +1,6 @@
 <html>
 <?php
-$db="proiect";
+$db="epiz_23148243_proiect";
 $con=mysqli_connect("localhost", "root", "", "proiect");
 if (mysqli_connect_errno())
 {
@@ -22,4 +22,5 @@ $_SESSION['loggedin'] = false;
 <head>
     <p style="font-size: 20px;">Apasati <a href="index.php">aici</a> pentru a va intoarce la pagina principala</p>
 </head>
+
 </html>

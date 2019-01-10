@@ -24,6 +24,11 @@
     input#prenume{
         margin-left: 8px;
     }
+@media (max-width: 496px){
+      input{
+         width: 50% !important;
+}
+}
     input[type=text],input[type=password],input[type=email]{
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
@@ -74,18 +79,19 @@
 <div style="text-align:center; vertical-align:middle; position: relative; margin-top: 25px">
     <form action="new_user.php" method="post">
         <label for="nname">Username</label>
-        <input type="text" required id="nname" pattern="[A-Za-z0-9]+" name="nname"><br>
+        <input type="text" required id="nname" pattern="[A-Za-z0-9]+" placeholder="alfa-numeric" name="nname"><br>
         <label for="npassword">Password</label>
-        <input type="password" required id="npassword" pattern="[A-Za-z0-9]+" name="npassword"><br>
+        <input type="password" required id="npassword" pattern="[A-Za-z0-9]+" placeholder="alfa-numeric" name="npassword"><br>
         <label for="nname">Nume</label>
-        <input type="text" required id="nume" pattern="[A-Za-z0-9]+" name="nume"><br>
+        <input type="text" required id="nume" pattern="[A-Za-z0-9]+" placeholder="alfa-numeric" name="nume"><br>
         <label for="nname">Prenume</label>
-        <input type="text" required id="prenume" pattern="[A-Za-z0-9]+" name="prenume"><br>
+        <input type="text" required id="prenume" pattern="[A-Za-z0-9]+" placeholder="alfa-numeric" name="prenume"><br>
         <label for="nname">Email</label>
-        <input type="email" required id="email" pattern="[A-Za-z0-9-_@.]+" name="email"><br>
+        <input type="email" required id="email" pattern="[A-Za-z0-9-_@.]+" placeholder="email" name="email"><br>
         <input type="submit" name="register"  value="Register">
     </form>
 </div>
 </div>
 </body>
 </html>
+			

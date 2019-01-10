@@ -39,7 +39,7 @@
         height: auto;
         position:absolute;
         margin: 0 auto;
-        top: 35%;
+        top: 22vw;
         left: 0;
         right: 0;
         bottom: 0;
@@ -85,7 +85,7 @@
 
 <p>
     <?php
-    $db="epiz_23148243_proiect";
+    $db="epiz_23148243_epiz_23148243_proiect";
     $suma=$_GET['suma'];
     session_start();
     $telefon11 = $_SESSION['telefon'];
@@ -103,11 +103,15 @@
     $fiinta=$_SESSION['utilizator'];
     $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
     $row1 = mysqli_fetch_array($result1);
+
     if ($suma > $row1[2] && $suma > $row1[3]){
         mysqli_query($con,"UPDATE telefoane SET last_bid = $suma WHERE phone_ID = $nr AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1' AND telefon='$telefon11')");
         $src='checkmark.png';
         echo '<img class="checkmark" src="' . $src . '">';
         mysqli_query($con, "INSERT INTO licitatii (utilizator, suma, telefon) VALUES ('$fiinta', '$suma', '$telefon11')");
+           if(count($suma) > 5 ){
+echo 'Pentru ca suma depaseste 5 cifre, nu va fi luata in considerare pentru ca nimeni nu ar licita peste 99999 EURO, sa fim seriosi';
+}
         $_SESSION['suma']=$suma;
     }
     else {
@@ -124,3 +128,4 @@
 </div>
 </body>
 </html>
+			

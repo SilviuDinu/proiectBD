@@ -18,7 +18,6 @@ if(!(mysqli_num_rows($r1)>0))
 ?>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 <style>
@@ -83,7 +82,7 @@ if(!(mysqli_num_rows($r1)>0))
 <?php
 
 if(isset($_GET['details'])){
-        $db="epiz_23148243_proiect";
+        $db="epiz_23148243_epiz_23148243_proiect";
         $username=$_SESSION["utilizator"];
 //        $bid=$_SESSION["model"];
     $con=mysqli_connect("localhost", "root", "", "proiect");
@@ -122,7 +121,8 @@ if(isset($_GET['details'])){
 //                $arrayy['nume_model']['telefon']=$row22['nume_model']['telefon'];
 //            }
 
-
+    $r33=mysqli_query($con, "SELECT COUNT(phone_ID) FROM telefoane");
+    $row33=mysqli_fetch_array($r33);
     $sql = "SELECT model.nume_model, telefoane.telefon FROM model INNER JOIN telefoane ON model.model_ID=telefoane.model_ID";
 
 //runs '$sql' query to get database data
@@ -147,27 +147,33 @@ if(isset($_GET['details'])){
         echo "<h2>Numar total de conturi create: ".$row8[0].'<hr></h2>';
 }
 
+
 ?>
 
     <input type="button" name="answer" style="display: block; margin: 0 auto; margin-bottom: 5px" onclick="ShowDiv()" value="Stocul nostru"/>
     <div id="myDiv" style="display:none" class="stoc" >
         <h2>
 
-                <?php echo $tele[0].' '.$mode[0]; ?>
+                <?php
+                $i=0;
+                for($i=0; $i<$row33[0]; $i++){
+                     echo $tele[$i].' '.$mode[$i].'<br>';
+                }
+                ?>
 
-                <?php echo '<br>'.$tele[1].' '.$mode[1]; ?>
-
-                <?php echo '<br>'.$tele[2].' '.$mode[2]; ?>
-
-                <?php echo '<br>'.$tele[3].' '.$mode[3]; ?>
-
-                <?php echo '<br>'.$tele[4].' '.$mode[4]; ?>
-
-                <?php echo '<br>'.$tele[5].' '.$mode[5]; ?>
-
-                <?php echo '<br>'.$tele[6].' '.$mode[6]; ?>
-
-                <?php echo '<br>'.$tele[7].' '.$mode[7]; ?>
+<!--                --><?php //echo '<br>'.$tele[1].' '.$mode[1]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[2].' '.$mode[2]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[3].' '.$mode[3]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[4].' '.$mode[4]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[5].' '.$mode[5]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[6].' '.$mode[6]; ?>
+<!---->
+<!--                --><?php //echo '<br>'.$tele[7].' '.$mode[7]; ?>
         </h2>
     </div>
 

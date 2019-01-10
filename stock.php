@@ -21,7 +21,7 @@ $telefon=$_SESSION['telefon'];
 ?>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 
@@ -198,11 +198,16 @@ $telefon=$_SESSION['telefon'];
         $result5 = mysqli_query($con," SELECT COUNT(*) FROM telefoane WHERE model_ID=(SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $row5 = mysqli_fetch_array($result5);
         $stoc=$row5[0];
-        echo "Momentan exista <strong>".$stoc.'</strong> telefoane de tip '.$model1.' in stoc.';
         $result0 = mysqli_query($con,"SELECT * FROM telefoane WHERE telefon = '$telefon11' AND model_ID = (SELECT model.model_ID FROM model WHERE nume_model='$model1')");
         $row0 = mysqli_fetch_array($result0);
         $nr=$row0[0];
-
+        $result88 = mysqli_query($con,"SELECT COUNT(DISTINCT utilizator) FROM licitatii WHERE telefon='$telefon'");
+        $row88=mysqli_fetch_array($result88);
+        if($row88 == null){
+        $row88[0]=0;
+        }
+        echo "Momentan exista <strong>".$stoc.'</strong> telefoane de tip '.$model1.' in stoc. Inca '.$row88[0].' pers mai liciteaza la acest tel.';
+      
         $result1 = mysqli_query($con, "SELECT * FROM telefoane WHERE telefon = (SELECT telefon FROM telefoane WHERE phone_ID='$nr')");
         $row1= mysqli_fetch_array($result1);
         echo "<br>Suma de inceput este: <strong>". $row1[2].'</strong> EURO';
@@ -224,7 +229,7 @@ $telefon=$_SESSION['telefon'];
     </script>
     <form action="products1.php" method="get" id="sum" onsubmit="myFunction()">
         <label for="suma"><strong><p><br>Aapasati <a href="welcome.php">aici</a> pentru a efectua alta operatiune</p></strong></label><br>
-        <input type="number" placeholder="Introduceti Suma" id="suma" pattern="[0-9]{1,5}" name="suma">
+        <input type="number" placeholder="Introduceti Suma" id="suma" pattern="^[0-9]{1,5}$" name="suma">
         <input type="submit"  id="insert" name="insert" value="Liciteaza">
 </div>
 <div class="pic" style="position: relative; "><br><?php
@@ -253,4 +258,4 @@ $telefon=$_SESSION['telefon'];
 </div>
 </body>
 
-</html>
+</html>				

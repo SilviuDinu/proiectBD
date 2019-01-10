@@ -1,9 +1,9 @@
 
 <?php
 if(isset($_POST['register'])) {
-    $db = "proiect";
+    $db = "epiz_23148243_proiect";
 
-    $con = mysqli_connect("localhost", "root", "", "proiect");
+    $con = mysqli_connect("sql306.epizy.com", "epiz_23148243", "MLtrtOZI4XW5", "epiz_23148243_proiect");
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
@@ -28,8 +28,8 @@ if(isset($_POST['modifica'])){
 if(isset($_POST['modifica2'])){
     session_start();
     $user=$_SESSION['utilizator'];
-    $db = "proiect";
-    $con = mysqli_connect("localhost", "root", "", "proiect");
+    $db = "epiz_23148243_proiect";
+    $con = mysqli_connect("sql306.epizy.com", "epiz_23148243", "MLtrtOZI4XW5", "epiz_23148243_proiect");
     if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }

@@ -1,5 +1,5 @@
 <?php
-//$con=mysqli_connect("localhost", ""root"", "", "proiect");
+//$con=mysqli_connect("sql306.epizy.com", "MLtrtOZI4XW5"epiz_23148243"MLtrtOZI4XW5", "MLtrtOZI4XW5", "epiz_23148243_proiect");
 //if (mysqli_connect_errno())
 //{
 //    echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -13,7 +13,6 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/my.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 <style>
@@ -29,6 +28,9 @@
         transition: width 0.4s ease-in-out;
         transition: width 0.4s ease-in;
     }
+   label {
+    color: white;
+}
    img {
        width: 20%;
         transition: width 2s;
@@ -95,7 +97,7 @@
        top: 10%;
        right: 0;
        left: 0;
-       width: 50%;
+       width: 45%;
        margin: 0 auto;
        text-align: center;
    }
@@ -183,4 +185,4 @@
 <div class="footer"><p>Acest website respecta in totalitate reglementarile GDPR, intrucat nicio data personala nu este transmisa unei entitati third-party</p>
 </div>
 </body>
-</html>
+</html>	

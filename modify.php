@@ -18,7 +18,7 @@ if(!(mysqli_num_rows($r1)>0))
 ?>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
     <link rel="stylesheet" media="screen" href="particles.js/demo/css/style.css">
 </head>
 <style>
@@ -97,13 +97,13 @@ if(!(mysqli_num_rows($r1)>0))
 <div style="text-align:center; vertical-align:middle; position: relative;">
     <form action="new_user.php" method="post" style="margin-top: 25px">
         <label for="nnpassword">Password</label>
-        <input type="password" id="nnpassword" pattern="[A-Za-z0-9]{2,}" name="nnpassword">
+        <input type="password" id="nnpassword" pattern="[A-Za-z0-9]+" name="nnpassword">
         <br><label for="nnname">Nume</label>
-        <input type="text" id="nnume" pattern="[A-Za-z0-9]{2,}" name="nnume">
+        <input type="text" id="nnume" pattern="[A-Za-z0-9]+" name="nnume">
         <br><label for="nnname">Prenume</label>
-        <input type="text" id="nprenume" pattern="[A-Za-z0-9]{2,}" name="nprenume">
+        <input type="text" id="nprenume" pattern="[A-Za-z0-9]+" name="nprenume">
         <br> <label for="nnname">Email</label>
-        <input type="email" id="nemail" pattern="[A-Za-z0-9]{2,}" name="nemail"><br>
+        <input type="email" id="nemail" pattern="[A-Za-z0-9-_@.]+" name="nemail"><br>
         <input type="submit" onclick="myFunction()" name="modifica2" value="Modifica">
     </form>
 </div>
