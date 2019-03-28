@@ -9,12 +9,12 @@ if (mysqli_connect_errno())
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 $user=$_SESSION['utilizator'];
-$r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$user'");
-mysqli_fetch_array($r1);
-if(!(mysqli_num_rows($r1)>0))
-{
-    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
-}
+//$r1=mysqli_query($con, "SELECT * FROM loggedin WHERE username='$user'");
+//mysqli_fetch_array($r1);
+//if(!(mysqli_num_rows($r1)>0))
+//{
+//    exit('<h2>Hopa! Se pare ca te-ai pierdut. te rog fugi </h2> <a href="index.php">ACASA</a>');
+//}
 ?>
 <html>
 <head>
